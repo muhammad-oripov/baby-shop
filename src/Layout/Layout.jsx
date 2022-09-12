@@ -12,7 +12,7 @@ const Layout = ({children}) => {
 
   return (
     <>
-        <header style={{width: "max(1920px)", margin: "0 auto",  padding: "10px 50px"}} >
+        <header style={{maxWidth: "1920px", margin: "0 auto",  padding: "10px 50px"}} >
             <Stack sx={{...style, justifyContent: "space-between"}} >
                 <SVGIcons icon="logo" />
                 <Stack sx={{...style, gap: "15px"}}>
@@ -46,10 +46,10 @@ const Layout = ({children}) => {
                 <AccountMenu/>
             </Stack>
         </header>
-        <main style={{width: "max(1920px)", margin: "0 auto"}} >
+        <main style={{maxWidth: "1920px", margin: "0 auto"}} >
             {children}
         </main>
-        <footer style={{ width: "max(1920px)", margin: "0 auto", ...style, justifyContent: "space-between", padding: "40px 170px" }} >
+        <footer style={{ maxWidth: "1920px", margin: "0 auto", ...style, justifyContent: "space-between", padding: "40px 170px" }} >
             <Stack>
                 <Typography variant="b" >
                     Контакты
