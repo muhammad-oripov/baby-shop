@@ -76,3 +76,7 @@ const ItemProd = ({item}) => {
     </div>
   )
 }
+
+const little_7o7 = () => {
+	
+}
