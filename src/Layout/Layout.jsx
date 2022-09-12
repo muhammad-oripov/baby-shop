@@ -12,10 +12,10 @@ const Layout = ({ children }) => {
 
     return (
         <>
-            <header style={{ maxWidth: "1920px", margin: "0 auto", padding: "10px 50px" }} >
-                <Stack sx={{ ...style, justifyContent: "space-between" }} >
+            <header style={{ maxWidth: "1920px", margin: "0 auto", padding: "10px 0" }} >
+                <Stack sx={{ ...style, justifyContent: "space-between" }} m='15px 50px'>
                     <SVGIcons icon="logo" />
-                    <Stack sx={{ ...style, gap: "15px" }}>
+                    <Stack sx={{ ...style, gap: "25px" }}>
                         <Link>О нас</Link>
                         <Link>Оплата и доставка</Link>
                         <Link>Отзывы</Link>
@@ -23,16 +23,16 @@ const Layout = ({ children }) => {
                         <Link>Блог</Link>
                         <Link>Контакты</Link>
                     </Stack>
-                    <Stack sx={style} >
+                    <Stack sx={style} gap='10px'>
                         <Button startIcon={<SVGIcons icon="phone" />}>+38 097 435 6743</Button>
                         <Button startIcon={<SVGIcons icon="email" />}>Kidsshop@gmail.com</Button>
                     </Stack>
-                    <Stack sx={style} >
-                        <Button>RU</Button>
-                        <Button>LV</Button>
+                    <Stack sx={style} gap='15px'>
+                        <Typography style={{cursor: "pointer"}}>RU</Typography>
+                        <Typography style={{cursor: "pointer"}}>LV</Typography>
                     </Stack>
                 </Stack>
-                <Stack sx={{ ...style, justifyContent: "space-between", background: "#F4F5F9", padding: "10px 20px" }} >
+                <Stack sx={{ ...style, justifyContent: "space-between", background: "#F4F5F9", padding: "10px 65px" }} >
                     <Button startIcon={<SVGIcons icon="menu" />} >Каталог товаров</Button>
                     <form style={{ ...style, width: "30%" }} >
                         <Box sx={{ display: 'flex', justifyContent: "space-between", alignItems: 'center', border: "1px solid #c4c4c4", borderRadius: "30px", overflow: "hidden", background: "#fff", width: "100%" }}>
@@ -50,20 +50,20 @@ const Layout = ({ children }) => {
                 {children}
             </main>
             <footer style={{ maxWidth: "1920px", margin: "0 auto", ...style, justifyContent: "space-between", padding: "40px 170px" }} >
-                <Stack>
-                    <Typography variant="b" >
+                <Stack gap='17px'>
+                    <Typography variant="b" marginBottom='10px'>
                         Контакты
                     </Typography>
-                    <Button startIcon={<SVGIcons icon="phone" />}>+38 097 435 6743</Button>
+                    <Button style={{paddingRight: '60px'}} startIcon={<SVGIcons icon="phone" />}>+38 097 435 6743</Button>
                     <Button startIcon={<SVGIcons icon="email" />}>Kidsshop@gmail.com</Button>
                     <Button startIcon={<SVGIcons icon="email" />}>Kidsshop@gmail.com</Button>
                 </Stack>
-                <Stack>
-                    <Typography variant="b" >
+                <Stack gap='17px'>
+                    <Typography variant="b" marginBottom='10px'>
                         Меню сайта
                     </Typography>
-                    <Stack sx={{ ...style, alignItems: "flex-start", gap: "20px" }} >
-                        <Stack>
+                    <Stack sx={{ ...style, alignItems: "flex-start", gap: "40px" }} >
+                        <Stack gap='17px'>
                             <Link>О нас</Link>
                             <Link>Оплата и доставка</Link>
                             <Link>Отзывы</Link>
@@ -71,7 +71,7 @@ const Layout = ({ children }) => {
                             <Link>Блог</Link>
                             <Link>Контакты</Link>
                         </Stack>
-                        <Stack>
+                        <Stack gap='17px'>
                             <Link>О нас</Link>
                             <Link>Оплата и доставка</Link>
                             <Link>Отзывы</Link>
@@ -79,7 +79,7 @@ const Layout = ({ children }) => {
                         </Stack>
                     </Stack>
                 </Stack>
-                <Stack>
+                <Stack gap='50px'>
                     <Typography variant="b" >
                         Социальные сети
                     </Typography>
