@@ -22,8 +22,8 @@ export default function SwiperComponent(props) {
             onSlideChange={() => console.log("slide change")}
             style={{ height: "100%", width: "100%", borderRadius: "15px", color : "#ccc"}}
           >
-            {props.arr.map((item) => (
-              <SwiperSlide>
+            {props.arr.map((item, idx) => (
+              <SwiperSlide key={idx}>
                 <props.card item={item} />
               </SwiperSlide>
             ))}

@@ -22,17 +22,17 @@ export default function Home() {
 		},
 	];
 
-  const arrPr = [
-    {
-      title: "pampers"
-    },
-    {
-      title: "pampers"
-    },
-    {
-      title: "pampers"
-    },
-  ]
+	const arrPr = [
+		{
+			title: "pampers"
+		},
+		{
+			title: "pampers"
+		},
+		{
+			title: "pampers"
+		},
+	]
 	return (
 		<>
 			<Helmet>
@@ -69,10 +69,10 @@ export function Images({ item }) {
 }
 
 
-const ItemProd = ({item}) => {
-  return (
-    <div style={{width: "200px", height: "100%", background: "red"}} >
-      <h1>{item.title}</h1>
-    </div>
-  )
+const ItemProd = ({ item }) => {
+	return (
+		<div style={{ width: "200px", height: "100%", background: "red" }} >
+			<h1>{item.title}</h1>
+		</div>
+	)
 }
