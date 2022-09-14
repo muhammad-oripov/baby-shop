@@ -9,7 +9,6 @@ const Layout = ({ children }) => {
         flexDirection: "row",
         alignItems: "center"
     }
-
     return (
         <>
             <header style={{ maxWidth: "1920px", margin: "0 auto", padding: "10px 0" }} >
@@ -33,7 +32,7 @@ const Layout = ({ children }) => {
                     </Stack>
                 </Stack>
                 <Stack sx={{ ...style, justifyContent: "space-between", background: "#F4F5F9", padding: "10px 65px" }} >
-                    <Button startIcon={<SVGIcons icon="menu" />} >Каталог товаров</Button>
+                    <Button startIcon={<SVGIcons icon="menu" />} onClick={() => window.location.pathname = '/search'} >Каталог товаров</Button>
                     <form style={{ ...style, width: "30%" }} >
                         <Box sx={{ display: 'flex', justifyContent: "space-between", alignItems: 'center', border: "1px solid #c4c4c4", borderRadius: "30px", overflow: "hidden", background: "#fff", width: "100%" }}>
                             <Box width="10%" height="100%" sx={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
