@@ -7,7 +7,7 @@ import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import Range from './Range';
 import { useState } from 'react';
-import { Box, Checkbox, Link, Stack, TextField } from '@mui/material';
+import { Box, Button, Checkbox, Link, Stack, TextField } from '@mui/material';
 
 const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -120,7 +120,7 @@ export default function Accardeon({ type }) {
                             </AccordionSummary>
                             <AccordionDetails sx={{ display: 'flex', flexDirection: 'column', gap: '4px'}}>
                                 {
-                                    links.map((item) => <Link sx={{color: 'grey !important'}}>{item}</Link> )
+                                    links.map((item) => <Button sx={{textDecoration: 'underline', color: 'grey !important', display:'flex', justifyContent: 'flex-start', alignItems: 'flex-start'}}>{item}</Button> )
                                 }
                             </AccordionDetails>
                         </Accordion>)
