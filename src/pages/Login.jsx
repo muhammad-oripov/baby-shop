@@ -9,7 +9,9 @@ const Login = () => {
             <Typography fontSize='37px' fontWeight='600' mb='14px'>Регистрация аккаунта</Typography>
             <Typography fontSize='24    px' fontWeight='400' color='#686877'>С помощью регистраци Вы сможете покупать у нас в 3 раза быстрее</Typography>
             <Stack direction="row" spacing={4} height='1050px' width='100%' p='25px 110px'>
-                <Stack spacing={0} height='100%' width='70%' bgcolor='#F4F5F9' borderRadius='15px '></Stack>
+                <Stack spacing={0} height='100%' width='70%' bgcolor='#F4F5F9' borderRadius='15px'>
+                    <Typography fontWeight='500' fontSize='26px'>Преимущества регистрации</Typography>
+                </Stack>
                 <Stack alignItems='center' position='relative' spacing={2} height='100%' width='30%' border='1px solid #E4E7EE' borderRadius='15px' padding='40px 0'>
                     <Typography fontWeight='500' fontSize='26px'>Преимущества регистрации</Typography>
                     <Box>
