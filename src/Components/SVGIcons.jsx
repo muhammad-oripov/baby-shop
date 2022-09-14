@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SVGIcons = ({ icon }) => {
+const SVGIcons = ({ icon, color }) => {
   switch (icon) {
     case "logo":
       return (
@@ -79,9 +79,9 @@ const SVGIcons = ({ icon }) => {
     case "menu":
       return (
         <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="0.015625" width="20" height="2" rx="1" fill="#090F24" />
-          <rect x="0.015625" y="8" width="20" height="2" rx="1" fill="#090F24" />
-          <rect x="0.015625" y="16" width="20" height="2" rx="1" fill="#090F24" />
+          <rect x="0.015625" width="20" height="2" rx="1" fill={color === 'white' ? 'white' : "#090F24"} />
+          <rect x="0.015625" y="8" width="20" height="2" rx="1" fill={color === 'white' ? 'white' : "#090F24"} />
+          <rect x="0.015625" y="16" width="20" height="2" rx="1" fill={color === 'white' ? 'white' : "#090F24"} />
         </svg>
       )
       break
