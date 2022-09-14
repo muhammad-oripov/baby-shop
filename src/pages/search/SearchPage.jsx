@@ -13,14 +13,14 @@ const SearchPage = () => {
                         <SVGIcons icon={"menu"} color={'white'} />
                         <Typography sx={{ fontSize: '20px', color: 'white' }} variant='span'>Каталог товаров</Typography>
                     </Box>
-                    <Accardeon />
+                    <Accardeon type={'default'} />
                 </Stack>
                 <Stack sx={{ width: '100%', border: '2px solid #74CCD8', borderRadius: '20px', overflow: 'hidden' }} className="nav">
                     <Box sx={{ padding: '25px', background: '#74CCD8', paddingBottom: '15px', paddingTop: '15px', display: 'flex', alignItems: 'center', gap: '15px' }}>
                         <SVGIcons icon={"menu"} color={'white'} />
                         <Typography sx={{ fontSize: '20px', color: 'white' }} variant='span'>Каталог товаров</Typography>
                     </Box>
-                    <Accardeon />
+                    <Accardeon type={'filter'} />
                 </Stack>
             </Box>
         </Stack>
