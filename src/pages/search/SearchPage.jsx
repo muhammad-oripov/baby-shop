@@ -1,11 +1,32 @@
-import { Box, Button, Rating, Stack, SvgIcon, Typography } from '@mui/material'
+import { Box, Button, Pagination, Rating, Stack, SvgIcon, Typography, Zoom } from '@mui/material'
 import React from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
 import SVGIcons from '../../Components/SVGIcons'
 import Accardeon from './Accardeon'
+import ProductBlock from './ProductBlock'
 import SelectSmall from './SelectSmall'
 
 const SearchPage = () => {
-    const [val, setVal] = React.useState(4);
+    const [products, setProdusts] = useState([])
+    const [currentPage, setCurrentPage] = useState(1)
+    const [productsPerPage] = useState(8)
+
+    useEffect(() => {
+        setProdusts([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18])
+    }, [])
+
+
+    const lastPageIndex = currentPage * productsPerPage
+    const firstPageIndex = lastPageIndex - productsPerPage
+    const currentProduct = products.slice(firstPageIndex, lastPageIndex)
+
+
+    const pageCount = []
+
+    for (let i = 0; i < Math.ceil(products.length / productsPerPage); i++) {
+        pageCount.push(i)
+    }
     return (
         <>
             <span style={{ display: 'flex', width: '94%', margin: '0px auto', marginTop: '20px', marginBottom: '-24px', alignItems: 'center', gap: '10px', color: '#686877', fontSize: '24px' }}>Результаты поиска: <h4 style={{ color: 'black' }}>Детская коляска</h4></span>
@@ -26,7 +47,7 @@ const SearchPage = () => {
                         <Accardeon type={'filter'} />
                     </Stack>
                 </Box>
-                <Box sx={{ width: '79%', display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                <Box sx={{ width: '79%', display: 'flex', flexDirection: 'column', gap: '20px', position: 'relative' }}>
                     <Box sx={{ background: '#F4F5F9', width: '100%', borderRadius: '14px', overflow: 'hidden', minHeight: '100px' }}>
                         <Box style={{ width: '100%', borderBottom: '1px solid grey', padding: '15px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                             <Typography variant='h5' > Активные Товары </Typography>
@@ -40,32 +61,19 @@ const SearchPage = () => {
                         <Typography sx={{ color: '#686877', fontSize: '20px' }} variant='span'>Найдено count товаров </Typography>
                         <SelectSmall />
                     </Box>
-                    <Box sx={{ width: '100%', display: 'flex', flexWrap: 'wrap', height: '1400px' }}>
-                        <Box sx={{ width: '27%', borderRadius: '10px', border: '1px solid #E4E7EE', height: '40%', padding: '10px' }}>
-                            <img style={{ width: '100%', borderRadius: '10px' }} src="/swiper/bed.png" alt="" />
-                            <Box sx={{ padding: '10px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                <Typography sx={{ display: 'flex', gap: '15px', fontWeight: '600', fontSize: '18px' }} vatiant="h4">100 € <span style={{ color: '#c4c4c4' }}>250 €</span> </Typography>
-                                <p style={{ color: '#090F24', fontSize: '22px' }}>Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка</p>
-                                <Box sx={{ display: 'flex', gap: '15px', marginTop: '10px' }}>
-                                    <SVGIcons icon="pink" />
-                                    <SVGIcons icon="black" />
-                                    <SVGIcons icon="lightgreen" />
-                                    <SVGIcons icon="lightbrown" />
-                                    <SVGIcons icon="lightblue" />
-                                </Box>
-                                <Typography sx={{ display: 'flex', alignItems: 'center', gap: '10px', color: '#686877' }}><SVGIcons icon="deliver" /> Доствка за 1-2 дня</Typography>
-                                <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                                    <Rating
-                                        name="simple-controlled"
-                                        value={val}
-                                        onChange={(event, newValue) => {
-                                            setVal(newValue);
-                                        }}
-                                    />
-                                    <span style={{color: '#B7B8C5'}}>Count отзывов</span>
-                                </Box>
-                            </Box>
-                        </Box>
+                    <Box sx={{ width: '100%', display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+                        {
+                            <ProductBlock products={currentProduct} />
+                        }
+                    </Box>
+                    <Box sx={{ position: 'absolute', top: '90%', left: '0', width: '100%', marginTop: '30px', display: 'flex', justifyContent: 'center' }}>
+                        {
+                            pageCount.map((num) =>
+                                <>
+                                    <button style={{ padding: '10px', borderRadius: '1000px', width: '70px', height: '70px', fontSize: '20px' }} onClick={() => setCurrentPage(num + 1)}>{num + 1}</button>
+                                </>
+                            )
+                        }
                     </Box>
                 </Box>
             </Stack>
