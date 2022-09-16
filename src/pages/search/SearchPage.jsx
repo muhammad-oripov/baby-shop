@@ -23,10 +23,14 @@ const SearchPage = () => {
     let act
     useEffect(() => {
         act = document.querySelectorAll('#act')
-        
+
         act.forEach(elem => {
-            elem.classList.remove('active')
-            
+            elem.onclick = () => {
+                act.forEach(element => {
+                    element.classList.remove('active')
+                })
+                elem.classList.add('active')
+            }
         })
     })
 
