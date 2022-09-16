@@ -19,7 +19,7 @@ const SearchPage = () => {
     const lastPageIndex = currentPage * productsPerPage
     const firstPageIndex = lastPageIndex - productsPerPage
     const currentProduct = products.slice(firstPageIndex, lastPageIndex)
-    // active
+    // active dsdsd
     let act
     useEffect(() => {
         act = document.querySelectorAll('#act')
