@@ -91,9 +91,9 @@ const SearchPage = () => {
                     <Box sx={{ position: 'absolute', gap: '10px', top: '90%', left: '0', width: '100%', marginTop: '30px', display: 'flex', justifyContent: 'center' }}>
                         <button className='btn_paginate' style={{ transition: '.4s ease', padding: '10px', cursor: 'pointer', background: '#F4F5F9', border: 'none', borderRadius: '1000px', width: pageCount.length > 10 ? '50px' : '70px', height: '70px', fontSize: '20px' }} onClick={prevpage}>{'<'}</button>
                         {
-                            pageCount.map((num) =>
+                            pageCount.map((num, index) =>
                                 <>
-                                    <button key={num} id="act" className={`pagination_numbers`} style={{ transition: '.4s ease', padding: '10px', borderRadius: '1000px', width: pageCount.length > 10 ? '50px' : '70px', height: '70px', fontSize: '20px', border: '1px solid #E4E7EE', background: '#FFFFFF', cursor: 'pointer' }} onClick={() => setCurrentPage(num + 1)}>{num + 1}</button>
+                                    <button key={index} id="act" className={`pagination_numbers`} style={{ transition: '.4s ease', padding: '10px', borderRadius: '1000px', width: pageCount.length > 10 ? '50px' : '70px', height: '70px', fontSize: '20px', border: '1px solid #E4E7EE', background: '#FFFFFF', cursor: 'pointer' }} onClick={() => setCurrentPage(num + 1)}>{num + 1}</button>
                                 </>
                             )
                         }
