@@ -176,7 +176,6 @@ const SVGIcons = ({ icon }) => {
           </defs>
         </svg>
       );
-      break;
     case "phone":
       return (
         <svg
@@ -192,7 +191,6 @@ const SVGIcons = ({ icon }) => {
           />
         </svg>
       );
-      break;
     case "email":
       return (
         <svg
@@ -220,7 +218,6 @@ const SVGIcons = ({ icon }) => {
           />
         </svg>
       );
-      break;
     case "menu":
       return (
         <svg
@@ -255,7 +252,6 @@ const SVGIcons = ({ icon }) => {
           />
         </svg>
       );
-      break;
     case "percent":
       return (
         <svg
@@ -1164,7 +1160,6 @@ const SVGIcons = ({ icon }) => {
           </defs>
         </svg>
       );
-      break;
     case "rocket":
       return (
         <svg
@@ -1333,7 +1328,6 @@ const SVGIcons = ({ icon }) => {
           </defs>
         </svg>
       );
-      break;
     case "discount":
       return (
         <svg
@@ -1537,7 +1531,6 @@ const SVGIcons = ({ icon }) => {
           </defs>
         </svg>
       );
-      break;
     case "coupon":
       return (
         <svg
@@ -1927,7 +1920,6 @@ const SVGIcons = ({ icon }) => {
           </defs>
         </svg>
       );
-      break;
     case "search":
       return (
         <svg

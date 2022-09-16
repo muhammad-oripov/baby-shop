@@ -26,3 +26,13 @@ button {
   border-radius: 25px;
 }
 
+.MuiPagination-ul li {
+  gap: '30px' !important;
+  align-items: center !important;
+}
+
+.MuiPagination-ul li button {
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 1000px !important;
+}
