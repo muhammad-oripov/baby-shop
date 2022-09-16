@@ -1,7 +1,6 @@
 import { Box, Button, Pagination, Rating, Stack, SvgIcon, Typography, Zoom } from '@mui/material'
 import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import SVGIcons from '../../Components/SVGIcons'
 import Accardeon from './Accardeon'
 import ProductBlock from './ProductBlock'
@@ -21,12 +20,35 @@ const SearchPage = () => {
     const firstPageIndex = lastPageIndex - productsPerPage
     const currentProduct = products.slice(firstPageIndex, lastPageIndex)
 
+    let act
+    useEffect(() => {
+        act = document.querySelectorAll('#act')
+        
+        act.forEach(elem => {
+            elem.classList.remove('active')
+            
+        })
+    })
 
     const pageCount = []
 
     for (let i = 0; i < Math.ceil(products.length / productsPerPage); i++) {
         pageCount.push(i)
     }
+
+    const prevpage = () => {
+        if (currentPage === (pageCount.at(0) + 1)) {
+        } else {
+            setCurrentPage(prev => prev - 1)
+        }
+    }
+    const nextpage = () => {
+        if (currentPage === (pageCount.at(-1) + 1)) {
+        } else {
+            setCurrentPage(prev => prev + 1)
+        }
+    }
+
     return (
         <>
             <span style={{ display: 'flex', width: '94%', margin: '0px auto', marginTop: '20px', marginBottom: '-24px', alignItems: 'center', gap: '10px', color: '#686877', fontSize: '24px' }}>Результаты поиска: <h4 style={{ color: 'black' }}>Детская коляска</h4></span>
@@ -66,14 +88,16 @@ const SearchPage = () => {
                             <ProductBlock products={currentProduct} />
                         }
                     </Box>
-                    <Box sx={{ position: 'absolute', top: '90%', left: '0', width: '100%', marginTop: '30px', display: 'flex', justifyContent: 'center' }}>
+                    <Box sx={{ position: 'absolute', gap: '10px', top: '90%', left: '0', width: '100%', marginTop: '30px', display: 'flex', justifyContent: 'center' }}>
+                        <button className='btn_paginate' style={{ transition: '.4s ease', padding: '10px', cursor: 'pointer', background: '#F4F5F9', border: 'none', borderRadius: '1000px', width: pageCount.length > 10 ? '50px' : '70px', height: '70px', fontSize: '20px' }} onClick={prevpage}>{'<'}</button>
                         {
                             pageCount.map((num) =>
                                 <>
-                                    <button style={{ padding: '10px', borderRadius: '1000px', width: '70px', height: '70px', fontSize: '20px' }} onClick={() => setCurrentPage(num + 1)}>{num + 1}</button>
+                                    <button key={num} id="act" className={`pagination_numbers`} style={{ transition: '.4s ease', padding: '10px', borderRadius: '1000px', width: pageCount.length > 10 ? '50px' : '70px', height: '70px', fontSize: '20px', border: '1px solid #E4E7EE', background: '#FFFFFF', cursor: 'pointer' }} onClick={() => setCurrentPage(num + 1)}>{num + 1}</button>
                                 </>
                             )
                         }
+                        <button className='btn_paginate' style={{ transition: '.4s ease', padding: '10px', background: '#F4F5F9', cursor: 'pointer', border: 'none', borderRadius: '1000px', width: pageCount.length > 10 ? '50px' : '70px', height: '70px', fontSize: '20px' }} onClick={nextpage}>{'>'}</button>
                     </Box>
                 </Box>
             </Stack>

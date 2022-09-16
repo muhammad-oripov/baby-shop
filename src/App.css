@@ -26,3 +26,15 @@ button {
   height: 60px !important;
   border-radius: 1000px !important;
 }
+
+.btn_paginate:hover {
+  background-color: #c4c4c4 !important;
+}
+
+.pagination_numbers:hover {
+  border: 1px solid #74CCD8 !important;
+}
+.active{
+  background: #74CCD8 !important;
+  color: 'white'
+}
