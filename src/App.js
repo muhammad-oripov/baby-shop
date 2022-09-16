@@ -11,8 +11,7 @@ function App() {
         <div className="App">
             <Layout>
                 <Routes>
-                    <Route index path="/" exact element={<Navigate to='/home' replace />} />
-                    <Route path="/home" exact element={<Home />} />
+                    <Route path="/" exact element={<Home />} />
                     <Route path="/login" exact element={<Login />} />
                     <Route path="/search" exact element={<SearchPage />} />
                     <Route path="*" exact element={'404'} />
