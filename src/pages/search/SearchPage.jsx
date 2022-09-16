@@ -62,7 +62,7 @@ const SearchPage = () => {
                                             setVal(newValue);
                                         }}
                                     />
-                                    <span style={{color: '#B7B8C5'}}>Count отзывов</span>
+                                    <span style={{ color: '#B7B8C5' }}>Count отзывов</span>
                                 </Box>
                             </Box>
                         </Box>

@@ -15,3 +15,14 @@ a {
 button {
   color: black !important;
 }
+
+.inputRounded .MuiSelect-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inputRounded .MuiOutlinedInput-root, .inputRounded .MuiButton-root, .inputRounded  .MuiOutlinedInput-notchedOutline {
+  border-radius: 25px;
+}
+
