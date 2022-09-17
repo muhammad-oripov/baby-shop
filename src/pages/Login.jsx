@@ -7,7 +7,25 @@ import CountryCodes from './CountryCodes';
 
 const Login = () => {
     const [radioStatus, setRadioStatus] = useState('private');
+    const [checkbox, setCheckbox] = useState(false);
     const [showPassword, setShowPassword] = useState('false');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        let obj = {
+            email: e.target.email.value,
+            number: e.target.select.value + e.target.number.value,
+            name: e.target.name.value,
+            firstName: e.target.firstName.value,
+            password: e.target.password.value,
+            country: e.target.country.value,
+            house: e.target.house.value,
+            idx: e.target.idx.value,
+        };
+
+        console.log(obj);
+    };
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }} className='Login'>
@@ -43,9 +61,9 @@ const Login = () => {
                                 },
                             }} />} label={<Typography fontSize='20px'>Юридическое лицо</Typography>} />
                         </RadioGroup>
-                        <form style={{ width: '100%', marginTop: '10px' }}>
+                        <form onSubmit={handleSubmit} style={{ width: '100%', marginTop: '10px' }}>
                             <Stack spacing={2}>
-                                <TextField fullWidth className="inputRounded" id="outlined-basic" label={<Typography fontSize='16px'>Электронная почта*</Typography>} variant="outlined" />
+                                <TextField name='email' fullWidth className="inputRounded" id="outlined-basic" label={<Typography fontSize='16px'>Электронная почта*</Typography>} variant="outlined" />
                                 <Stack style={{ flexDirection: 'row' }} justifyContent='space-between' alignItems='center'>
                                     <FormControl style={{ width: '170px' }}>
                                         <InputLabel id="demo-simple-select-label">Country</InputLabel>
@@ -54,11 +72,13 @@ const Login = () => {
                                             labelId="demo-simple-select-label"
                                             id="demo-simple-select"
                                             label="Country"
+                                            name='select'
+                                            defaultValue='+998'
                                             style={{ display: 'flex' }}
                                         >
                                             {CountryCodes.map((country, idx) => {
                                                 return (
-                                                    <MenuItem key={idx} style={{ width: '200px', padding: '10px 15px', display: 'flex', justifyContent: 'space-between    ' }} value={country.isoCode}>
+                                                    <MenuItem key={idx} style={{ width: '200px', padding: '10px 15px', display: 'flex', justifyContent: 'space-between    ' }} value={country.dialCode}>
                                                         <img style={{ borderRadius: '90%', width: '35px' }} src={country.flag} alt="" />
                                                         <Typography width='70px'>{country.dialCode}</Typography>
                                                     </MenuItem>
@@ -66,15 +86,16 @@ const Login = () => {
                                             })}
                                         </Select>
                                     </FormControl>
-                                    <TextField style={{ width: '890px' }} type='number' className="inputRounded" id="outlined-basic" label={<Typography fontSize='16px'>Номер телефона*</Typography>} variant="outlined" />
+                                    <TextField name='number' style={{ width: '890px' }} type='number' className="inputRounded" id="outlined-basic" label={<Typography fontSize='16px'>Номер телефона*</Typography>} variant="outlined" />
                                 </Stack>
                                 <Stack style={{ flexDirection: 'row' }} justifyContent='space-between' alignItems='center' gap='20px'>
-                                    <TextField style={{ width: '50%' }} className="inputRounded" id="outlined-basic" label={<Typography fontSize='16px'>Ваше имя*</Typography>} variant="outlined" />
-                                    <TextField style={{ width: '50%' }} className="inputRounded" id="outlined-basic" label={<Typography fontSize='16px'>Фамилия*</Typography>} variant="outlined" />
+                                    <TextField name='name' style={{ width: '50%' }} className="inputRounded" id="outlined-basic" label={<Typography fontSize='16px'>Ваше имя*</Typography>} variant="outlined" />
+                                    <TextField name='firstName' style={{ width: '50%' }} className="inputRounded" id="outlined-basic" label={<Typography fontSize='16px'>Фамилия*</Typography>} variant="outlined" />
                                 </Stack>
                                 <FormControl sx={{ m: 1, width: '100%' }} variant="outlined">
                                     <InputLabel htmlFor="outlined-adornment-password">Придумайте пароль (от 6 до 10 символов)*</InputLabel>
                                     <OutlinedInput
+                                        name='password'
                                         fullWidth
                                         className="inputRounded"
                                         id="outlined-adornment-password"
@@ -103,11 +124,11 @@ const Login = () => {
                             </Stack>
                             <Stack marginTop='45px' spacing={2} className='inputRounded'>
                                 <Typography fontWeight='600' fontSize='27px' marginBottom='7px' textAlign='center'>Адрес для получения доставки</Typography>
-                                <TextField fullWidth className="inputRounded" id="outlined-basic" label={<Typography fontSize='16px'>Город / Село / Пагаст / Район*</Typography>} variant="outlined" />
-                                <TextField fullWidth className="inputRounded" id="outlined-basic" label={<Typography fontSize='16px'>Улица / Дом / Квартира*</Typography>} variant="outlined" />
-                                <TextField fullWidth className="inputRounded" id="outlined-basic" label={<Typography fontSize='16px'>Почтовый индекс*</Typography>} variant="outlined" />
+                                <TextField name='country' fullWidth className="inputRounded" id="outlined-basic" label={<Typography fontSize='16px'>Город / Село / Пагаст / Район*</Typography>} variant="outlined" />
+                                <TextField name='house' fullWidth className="inputRounded" id="outlined-basic" label={<Typography fontSize='16px'>Улица / Дом / Квартира*</Typography>} variant="outlined" />
+                                <TextField name='idx' fullWidth className="inputRounded" id="outlined-basic" label={<Typography fontSize='16px'>Почтовый индекс*</Typography>} variant="outlined" />
                                 <FormGroup style={{ marginTop: '25px' }}>
-                                    <FormControlLabel control={<Checkbox />} label={
+                                    <FormControlLabel control={<Checkbox onChange={e => setCheckbox(!checkbox)} />} label={
                                         <Typography display='flex' fontSize='20px'>Я ознакомился (-ась) и согласен (-на) с
                                             <Typography component='span' margin='0 0 0 5px' display='flex' color='#090F24' fontSize='20px' fontWeight='600'>правилами покупки
                                                 <Typography margin='0 5px 0 0' component='span' fontSize='20px'>и</Typography>правилами обработки данных</Typography>.
@@ -115,7 +136,7 @@ const Login = () => {
                                     } />
                                 </FormGroup>
                                 <Stack alignItems='center' justifyContent='center' height='80px'>
-                                    <Button variant="contained" sx={{ width: '300px', height: '50px', backgroundColor: '#74CCD8', "&:hover": { backgroundColor: "#74CCD8" }, gap: '7px' }} startIcon={<SVGIcons icon="galka" />}>Зарегестрироватся</Button>
+                                    <Button type='submit' disabled={!checkbox} variant="contained" sx={{ width: '300px', height: '50px', backgroundColor: '#74CCD8', "&:hover": { backgroundColor: "#74CCD8" }, gap: '7px' }} startIcon={<SVGIcons icon="galka" />}>Зарегестрироватся</Button>
                                 </Stack>
                             </Stack>
                         </form>
