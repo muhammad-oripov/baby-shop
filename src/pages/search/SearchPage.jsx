@@ -1,6 +1,7 @@
 import { Box, Button, Pagination, Rating, Stack, SvgIcon, Typography, Zoom } from '@mui/material'
 import React from 'react'
 import { useEffect, useRef, useState } from 'react'
+import { Helmet } from 'react-helmet'
 import SVGIcons from '../../Components/SVGIcons'
 import Accardeon from './Accardeon'
 import ProductBlock from './ProductBlock'
@@ -82,6 +83,13 @@ const SearchPage = () => {
     }
     return (
         <>
+            <Helmet>
+                <link
+                    rel="icon"
+                    href="/public/swiper/logo.png"
+                />
+                <title>Bernu: Поищите что нибудь для вашего ребенка</title>
+            </Helmet>
             <span style={{ display: 'flex', width: '94%', margin: '0px auto', marginTop: '20px', marginBottom: '-24px', alignItems: 'center', gap: '10px', color: '#686877', fontSize: '24px' }}>Результаты поиска: <h4 style={{ color: 'black' }}>Детская коляска</h4></span>
             <Stack sx={{ width: '94%', gap: '20px', margin: '0 auto', paddingTop: '40px', paddingBottom: '40px', flexDirection: 'row' }}>
                 <Box sx={{ width: '21%', display: 'flex', flexDirection: 'column', gap: '30px' }}>

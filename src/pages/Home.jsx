@@ -38,7 +38,7 @@ export default function Home() {
 			<Helmet>
 				<link
 					rel="icon"
-					href="https://static.npmjs.com/attachments/ck3uweazy72ye8874y9kkxnx1-gak.png"
+					href="/public/logo.png"
 				/>
 				<title>Bernu: подарки для ваших детей</title>
 			</Helmet>
