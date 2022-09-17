@@ -68,7 +68,18 @@ const SearchPage = () => {
             })
         }
     }
-
+    const deleteFunc = (e) => {
+        let newColors = colors.filter(item => item !== e.target.innerHTML.split(' ')[0])
+        setColors(newColors)
+    }
+    const deleteFunc2 = (e) => {
+        let newBrands = brands.filter(item => item !== e.target.innerHTML.split(' ')[0])
+        setBrands(newBrands)
+    }
+    const deleteAll = () => {
+        setBrands([])
+        setColors([])
+    }
     return (
         <>
             <span style={{ display: 'flex', width: '94%', margin: '0px auto', marginTop: '20px', marginBottom: '-24px', alignItems: 'center', gap: '10px', color: '#686877', fontSize: '24px' }}>Результаты поиска: <h4 style={{ color: 'black' }}>Детская коляска</h4></span>
@@ -93,20 +104,20 @@ const SearchPage = () => {
                     <Box sx={{ background: '#F4F5F9', width: '100%', borderRadius: '14px', overflow: 'hidden', minHeight: '100px' }}>
                         <Box style={{ width: '100%', borderBottom: '1px solid grey', padding: '15px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                             <Typography variant='h5' > Активные Товары </Typography>
-                            <Button startIcon={<SVGIcons icon="cancel" />} sx={{ color: '#B7B8C5 !important  ' }}> Очистить все</Button>
+                            <Button onClick={deleteAll} startIcon={<SVGIcons icon="cancel" />} sx={{ color: '#B7B8C5 !important  ' }}> Очистить все</Button>
                         </Box>
                         <Box sx={{ padding: '15px', display: 'flex', flexDirection: 'column', gap: '10px' }}  >
                             <Box sx={{ dispaly: 'flex', alignItems: 'center' }}>
                                 <b>Бренд: </b>
                                 {
-                                    brands.map((i, index) => <Button key={index} sx={{ background: '#FFFFFF', borderRadius: '50px', paddingLeft: '20px', paddingRight: '20px', dispaly: 'flex', alignItems: 'center', gap: '10px' }}>{i} <SVGIcons icon="cancel" /></Button>
+                                    brands.map((i, index) => <Button onClick={deleteFunc2} key={index} sx={{ background: '#FFFFFF', borderRadius: '50px', paddingLeft: '20px', paddingRight: '20px', dispaly: 'flex', alignItems: 'center', gap: '10px' }}>{i} <SVGIcons icon="cancel" /></Button>
                                     )
                                 }
                             </Box>
                             <Box sx={{ dispaly: 'flex', alignItems: 'center' }}>
                                 <b>По цветам: </b>
                                 {
-                                    colors.map((i, index) => <Button key={index} sx={{ background: '#FFFFFF', borderRadius: '50px', paddingLeft: '20px', paddingRight: '20px', dispaly: 'flex', alignItems: 'center', gap: '10px' }}>{i} <SVGIcons icon="cancel" /></Button>
+                                    colors.map((i, index) => <Button onClick={deleteFunc} key={index} sx={{ background: '#FFFFFF', borderRadius: '50px', paddingLeft: '20px', paddingRight: '20px', dispaly: 'flex', alignItems: 'center', gap: '10px' }}>{i} <SVGIcons icon="cancel" /></Button>
                                     )
                                 }
                             </Box>

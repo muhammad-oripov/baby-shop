@@ -610,6 +610,41 @@ const SVGIcons = ({ icon }) => {
         </svg>
       )
       break
+    case "pink":
+      return (
+        <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.268555" y="0.852783" width="30" height="30" rx="15" fill="#F39999" />
+        </svg>
+      )
+      break
+    case "black":
+      return (
+        <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.468552" y="0.852783" width="30" height="30" rx="15" fill="#090F24" />
+        </svg>
+      )
+      break
+    case "lightgreen":
+      return (
+        <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.668549" y="0.852783" width="30" height="30" rx="15" fill="#69CB87" />
+        </svg>
+      )
+      break
+    case "lightbrown":
+      return (
+        <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.86853" y="0.852783" width="30" height="30" rx="15" fill="#9C7C75" />
+        </svg>
+      )
+      break
+    case "lightblue":
+      return (
+        <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.0685425" y="0.852783" width="30" height="30" rx="15" fill="#A2D0DA" />
+        </svg>
+      )
+      break
     default:
       break;
   }
