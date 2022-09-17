@@ -50,7 +50,24 @@ const arr = [
 const links = [
     'Простыни (110)', 'Наволочки (46)', 'Клеенки и подклады (12)', 'Детское постельное белье: 6+ частей (12)', 'Все для пеленания', 'Мягкие игрушки', 'Аксессуары'
 ]
-export default function Accardeon({ type }) {
+const brands = [
+    'Avent',
+    'Omron',
+    'NUK',
+    'Baby Santh',
+    'Hipp',
+    'Nutrilon',
+    'Nestogen',
+    'ADAMEX',
+    'Chicco'
+]
+const colors = [
+    'Зеленый',
+    'Красный',
+    'Синий',
+    'Бежевый'    
+]
+export default function Accardeon({ type, onBrand, onColor, color, brand }) {
     const [expanded, setExpanded] = React.useState('panel1');
     const [backColor, setBackColor] = React.useState(false);
 
@@ -80,32 +97,26 @@ export default function Accardeon({ type }) {
         {
             name: 'Бренды:',
             temp: <Stack sx={{ width: '100%' }}>
-                <Box><Checkbox /> <Typography variant='span'>Avent <Typography sx={{ color: '#c4c4c4' }} variant='span'>(24)</Typography></Typography> </Box>
-                <Box><Checkbox /> <Typography variant='span'>Omron <Typography sx={{ color: '#c4c4c4' }} variant='span'>(24)</Typography></Typography> </Box>
-                <Box><Checkbox /> <Typography variant='span'>NUK <Typography sx={{ color: '#c4c4c4' }} variant='span'>(24)</Typography></Typography> </Box>
-                <Box><Checkbox /> <Typography variant='span'>Baby Santh <Typography sx={{ color: '#c4c4c4' }} variant='span'>(24)</Typography></Typography> </Box>
-                <Box><Checkbox /> <Typography variant='span'>Hipp <Typography sx={{ color: '#c4c4c4' }} variant='span'>(24)</Typography></Typography> </Box>
-                <Box><Checkbox /> <Typography variant='span'>Nutrilon <Typography sx={{ color: '#c4c4c4' }} variant='span'>(24)</Typography></Typography> </Box>
-                <Box><Checkbox /> <Typography variant='span'>Nestogen <Typography sx={{ color: '#c4c4c4' }} variant='span'>(24)</Typography></Typography> </Box>
-                <Box><Checkbox /> <Typography variant='span'>ADAMEX <Typography sx={{ color: '#c4c4c4' }} variant='span'>(24)</Typography></Typography> </Box>
-                <Box><Checkbox /> <Typography variant='span'>Chicco <Typography sx={{ color: '#c4c4c4' }} variant='span'>(24)</Typography></Typography> </Box>
+                {
+                    brands.map((i, index) => <Box key={index} sx={{display: 'flex', alignItems: 'center', gap: '10px'}} ><Checkbox onChange={(e) => {
+                        onBrand([...brand, e.target.parentNode.nextSibling.nextSibling.innerHTML])
+                    }}/> <Typography variant='span'>{i}</Typography> <Typography sx={{ color: '#c4c4c4' }} variant='span'>(24)</Typography> </Box>)
+                }
             </Stack>
         },
         {
             name: 'По цветам:',
             temp: <Stack>
-                <Box><Checkbox /> <Typography variant='span'>Черный</Typography> <Typography sx={{ color: '#c4c4c4' }} variant='span'>(24)</Typography> </Box>
-                <Box><Checkbox /> <Typography variant='span'>Зеленый</Typography> <Typography sx={{ color: '#c4c4c4' }} variant='span'>(145)</Typography> </Box>
-                <Box><Checkbox /> <Typography variant='span'>Красный</Typography> <Typography sx={{ color: '#c4c4c4' }} variant='span'>(24)</Typography> </Box>
-                <Box><Checkbox /> <Typography variant='span'>Синий</Typography> <Typography sx={{ color: '#c4c4c4' }} variant='span'>(2)</Typography> </Box>
-                <Box><Checkbox /> <Typography variant='span'>Бежевый</Typography> <Typography sx={{ color: '#c4c4c4' }} variant='span'>(24)</Typography> </Box>
+                {
+                    colors.map((i, index) => <Box key={index} ><Checkbox onChange={(e) => onColor([...color, e.target.parentNode.nextSibling.nextSibling.innerHTML])} /> <Typography variant='span'>{i}</Typography> <Typography sx={{ color: '#c4c4c4' }} variant='span'>(24)</Typography> </Box>)
+                }
             </Stack>
         },
         {
-            name: 'По материалу',
+            name: 'По материалу:',
         },
         {
-            name: 'Страна-производитель',
+            name: 'Страна-производитель:',
         }
     ]
 

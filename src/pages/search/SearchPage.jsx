@@ -10,6 +10,8 @@ const SearchPage = () => {
     const [products, setProdusts] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
     const [productsPerPage] = useState(8)
+    const [brands, setBrands] = useState([])
+    const [colors, setColors] = useState([])
 
     useEffect(() => {
         setProdusts([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18])
@@ -40,16 +42,30 @@ const SearchPage = () => {
         pageCount.push(i)
     }
 
-    const prevpage = () => {
+    const prevpage = (e) => {
         if (currentPage === (pageCount.at(0) + 1)) {
         } else {
             setCurrentPage(prev => prev - 1)
+            act = document.querySelectorAll('#act')
+
+            act.forEach((elem, index) => {
+                elem.classList.remove('active')
+                let a = currentPage - 2
+                act[a].classList.add('active')
+            })
         }
     }
     const nextpage = () => {
         if (currentPage === (pageCount.at(-1) + 1)) {
         } else {
             setCurrentPage(prev => prev + 1)
+            act = document.querySelectorAll('#act')
+
+            act.forEach((elem, index) => {
+                elem.classList.remove('active')
+                let a = currentPage
+                act[a].classList.add('active')
+            })
         }
     }
 
@@ -70,7 +86,7 @@ const SearchPage = () => {
                             <SVGIcons icon={"menu"} color={'white'} />
                             <Typography sx={{ fontSize: '20px', color: 'white' }} variant='span'>Фильтры</Typography>
                         </Box>
-                        <Accardeon type={'filter'} />
+                        <Accardeon onBrand={setBrands} onColor={setColors} color={colors} brand={brands} type={'filter'} />
                     </Stack>
                 </Box>
                 <Box sx={{ width: '79%', display: 'flex', flexDirection: 'column', gap: '20px', position: 'relative' }}>
@@ -79,12 +95,25 @@ const SearchPage = () => {
                             <Typography variant='h5' > Активные Товары </Typography>
                             <Button startIcon={<SVGIcons icon="cancel" />} sx={{ color: '#B7B8C5 !important  ' }}> Очистить все</Button>
                         </Box>
-                        <Box>
-
+                        <Box sx={{ padding: '15px', display: 'flex', flexDirection: 'column', gap: '10px' }}  >
+                            <Box sx={{ dispaly: 'flex', alignItems: 'center' }}>
+                                <b>Бренд: </b>
+                                {
+                                    brands.map((i, index) => <Button key={index} sx={{ background: '#FFFFFF', borderRadius: '50px', paddingLeft: '20px', paddingRight: '20px', dispaly: 'flex', alignItems: 'center', gap: '10px' }}>{i} <SVGIcons icon="cancel" /></Button>
+                                    )
+                                }
+                            </Box>
+                            <Box sx={{ dispaly: 'flex', alignItems: 'center' }}>
+                                <b>По цветам: </b>
+                                {
+                                    colors.map((i, index) => <Button key={index} sx={{ background: '#FFFFFF', borderRadius: '50px', paddingLeft: '20px', paddingRight: '20px', dispaly: 'flex', alignItems: 'center', gap: '10px' }}>{i} <SVGIcons icon="cancel" /></Button>
+                                    )
+                                }
+                            </Box>
                         </Box>
                     </Box>
                     <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <Typography sx={{ color: '#686877', fontSize: '20px' }} variant='span'>Найдено count товаров </Typography>
+                        <Typography sx={{ color: '#686877', fontSize: '20px' }} variant='span'>Найдено {products.length} товаров </Typography>
                         <SelectSmall />
                     </Box>
                     <Box sx={{ width: '100%', display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
@@ -92,16 +121,16 @@ const SearchPage = () => {
                             <ProductBlock products={currentProduct} />
                         }
                     </Box>
-                    <Box sx={{ position: 'absolute', gap: '10px', top: '90%', left: '0', width: '100%', marginTop: '30px', display: 'flex', justifyContent: 'center' }}>
-                        <button className='btn_paginate' style={{ transition: '.4s ease', padding: '10px', cursor: 'pointer', background: '#F4F5F9', border: 'none', borderRadius: '1000px', width: pageCount.length > 10 ? '50px' : '70px', height: '70px', fontSize: '20px' }} onClick={prevpage}>{'<'}</button>
+                    <Box sx={{ position: 'absolute', gap: '10px', top: '1330px', left: '0', width: '100%', marginTop: '30px', display: 'flex', justifyContent: 'center' }}>
+                        <button className='btn_paginate' style={{ transition: '.2s ease', padding: '10px', cursor: 'pointer', background: '#F4F5F9', border: 'none', borderRadius: '1000px', width: pageCount.length > 10 ? '50px' : '70px', height: '70px', fontSize: '20px' }} onClick={prevpage}>{'<'}</button>
                         {
                             pageCount.map((num, index) =>
                                 <>
-                                    <button key={index} id="act" className={`pagination_numbers`} style={{ transition: '.4s ease', padding: '10px', borderRadius: '1000px', width: pageCount.length > 10 ? '50px' : '70px', height: '70px', fontSize: '20px', border: '1px solid #E4E7EE', background: '#FFFFFF', cursor: 'pointer' }} onClick={() => setCurrentPage(num + 1)}>{num + 1}</button>
+                                    <button key={index} id="act" className={`pagination_numbers`} style={{ transition: '.2s ease', padding: '10px', borderRadius: '1000px', width: pageCount.length > 10 ? '50px' : '70px', height: '70px', fontSize: '20px', border: '1px solid #E4E7EE', background: '#FFFFFF', cursor: 'pointer' }} onClick={() => setCurrentPage(num + 1)}>{num + 1}</button>
                                 </>
                             )
                         }
-                        <button className='btn_paginate' style={{ transition: '.4s ease', padding: '10px', background: '#F4F5F9', cursor: 'pointer', border: 'none', borderRadius: '1000px', width: pageCount.length > 10 ? '50px' : '70px', height: '70px', fontSize: '20px' }} onClick={nextpage}>{'>'}</button>
+                        <button className='btn_paginate' style={{ transition: '.2s ease', padding: '10px', background: '#F4F5F9', cursor: 'pointer', border: 'none', borderRadius: '1000px', width: pageCount.length > 10 ? '50px' : '70px', height: '70px', fontSize: '20px' }} onClick={nextpage}>{'>'}</button>
                     </Box>
                 </Box>
             </Stack>
