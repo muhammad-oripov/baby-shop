@@ -42,13 +42,17 @@ export default function Home() {
 				/>
 				<title>Bernu: подарки для ваших детей</title>
 			</Helmet>
-			<div>
+			<div style={{ display: 'flex', alignItems: 'center', width: '97%', margin: '0 auto' }}>
 				<SwiperComponent
 					arr={cardImg}
 					card={Images}
 					slides={1}
 					pagination={true}
 				/>
+				<div className="skidka">
+					<img src="/swiper/skidka.png" alt="img" />
+					<img src="/swiper/baby.png" alt="img" />
+				</div>
 			</div>
 		</>
 	);
