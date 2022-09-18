@@ -1,4 +1,4 @@
-import { Stack, Button, Box, IconButton, Typography } from '@mui/material'
+import { Stack, Button, Box, Typography } from '@mui/material'
 import React from 'react'
 import AccountMenu from '../Components/AccountMenu'
 import SVGIcons from '../Components/SVGIcons'
@@ -16,12 +16,12 @@ const Layout = ({ children }) => {
                 <Stack sx={{ ...style, justifyContent: "space-between" }} m='15px 50px'>
                     <SVGIcons icon="logo" />
                     <Stack sx={{ ...style, gap: "25px" }}>
-                        <Link>О нас</Link>
-                        <Link>Оплата и доставка</Link>
-                        <Link>Отзывы</Link>
-                        <Link>FAQ</Link>
-                        <Link>Блог</Link>
-                        <Link>Контакты</Link>
+                        <Link to="#" >О нас</Link>
+                        <Link to="#" >Оплата и доставка</Link>
+                        <Link to="#" >Отзывы</Link>
+                        <Link to="#" >FAQ</Link>
+                        <Link to="#" >Блог</Link>
+                        <Link to="#" >Контакты</Link>
                     </Stack>
                     <Stack sx={style} gap='10px'>
                         <Button startIcon={<SVGIcons icon="phone" />}>+38 097 435 6743</Button>
@@ -66,18 +66,18 @@ const Layout = ({ children }) => {
                     </Typography>
                     <Stack sx={{ ...style, alignItems: "flex-start", gap: "40px" }} >
                         <Stack gap='17px'>
-                            <Link>О нас</Link>
-                            <Link>Оплата и доставка</Link>
-                            <Link>Отзывы</Link>
-                            <Link>FAQ</Link>
-                            <Link>Блог</Link>
-                            <Link>Контакты</Link>
+                            <Link to="#" >О нас</Link>
+                            <Link to="#" >Оплата и доставка</Link>
+                            <Link to="#" >Отзывы</Link>
+                            <Link to="#" >FAQ</Link>
+                            <Link to="#" >Блог</Link>
+                            <Link to="#" >Контакты</Link>
                         </Stack>
                         <Stack gap='17px'>
-                            <Link>О нас</Link>
-                            <Link>Оплата и доставка</Link>
-                            <Link>Отзывы</Link>
-                            <Link>FAQ</Link>
+                            <Link to="#" >О нас</Link>
+                            <Link to="#" >Оплата и доставка</Link>
+                            <Link to="#" >Отзывы</Link>
+                            <Link to="#" >FAQ</Link>
                         </Stack>
                     </Stack>
                 </Stack>
