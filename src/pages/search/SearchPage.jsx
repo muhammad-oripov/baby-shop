@@ -53,25 +53,18 @@ const SearchPage = () => {
                             <Typography variant='h5' > Активные Товары </Typography>
                             <Button startIcon={<SVGIcons icon="cancel" />} sx={{ color: '#B7B8C5 !important  ' }}> Очистить все</Button>
                         </Box>
-                        <Box>
-
-                        </Box>
                     </Box>
                     <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                         <Typography sx={{ color: '#686877', fontSize: '20px' }} variant='span'>Найдено count товаров </Typography>
                         <SelectSmall />
                     </Box>
                     <Box sx={{ width: '100%', display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-                        {
-                            <ProductBlock products={currentProduct} />
-                        }
+                        <ProductBlock products={currentProduct} />
                     </Box>
                     <Box sx={{ position: 'absolute', top: '90%', left: '0', width: '100%', marginTop: '30px', display: 'flex', justifyContent: 'center' }}>
                         {
-                            pageCount.map((num) =>
-                                <>
-                                    <button style={{ padding: '10px', borderRadius: '1000px', width: '70px', height: '70px', fontSize: '20px' }} onClick={() => setCurrentPage(num + 1)}>{num + 1}</button>
-                                </>
+                            pageCount.map((num, idx) =>
+                                <button key={idx} style={{ padding: '10px', borderRadius: '1000px', width: '70px', height: '70px', fontSize: '20px' }} onClick={() => setCurrentPage(num + 1)}>{num + 1}</button>
                             )
                         }
                     </Box>
