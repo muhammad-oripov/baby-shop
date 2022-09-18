@@ -7,6 +7,10 @@
   user-select: none;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 a {
   color: black !important;
   text-decoration: none !important;
@@ -36,6 +40,9 @@ button {
   width: 60px !important;
   height: 60px !important;
   border-radius: 1000px !important;
+} 
+.MuiBox-root .swiper-slide{
+  width: 259.25px !important;
 }
 
 .btn_paginate:hover {
