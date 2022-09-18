@@ -91,7 +91,7 @@ const SearchPage = () => {
                 <title>Bernu: Поищите что нибудь для вашего ребенка</title>
             </Helmet>
             <span style={{ display: 'flex', width: '94%', margin: '0px auto', marginTop: '20px', marginBottom: '-24px', alignItems: 'center', gap: '10px', color: '#686877', fontSize: '24px' }}>Результаты поиска: <h4 style={{ color: 'black' }}>Детская коляска</h4></span>
-            <Stack sx={{ width: '94%', gap: '20px', margin: '0 auto', paddingTop: '40px', paddingBottom: '40px', flexDirection: 'row' }}>
+            <Stack sx={{ marginBottom: '70px !important', width: '94%', gap: '20px', margin: '0 auto', paddingTop: '40px', paddingBottom: '40px', flexDirection: 'row' }}>
                 <Box sx={{ width: '21%', display: 'flex', flexDirection: 'column', gap: '30px' }}>
                     <Stack sx={{ width: '100%', border: '2px solid #74CCD8', borderRadius: '20px', overflow: 'hidden' }} className="nav">
                         <Box sx={{ padding: '25px', background: '#74CCD8', paddingBottom: '15px', paddingTop: '15px', display: 'flex', alignItems: 'center', gap: '15px' }}>

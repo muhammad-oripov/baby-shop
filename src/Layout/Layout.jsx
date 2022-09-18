@@ -1,7 +1,8 @@
-import { Stack, Link, Button, Box, IconButton, Typography } from '@mui/material'
+import { Stack, Button, Box, IconButton, Typography } from '@mui/material'
 import React from 'react'
 import AccountMenu from '../Components/AccountMenu'
 import SVGIcons from '../Components/SVGIcons'
+import { Link } from 'react-router-dom'
 
 const Layout = ({ children }) => {
     const style = {
@@ -27,12 +28,14 @@ const Layout = ({ children }) => {
                         <Button startIcon={<SVGIcons icon="email" />}>Kidsshop@gmail.com</Button>
                     </Stack>
                     <Stack sx={style} gap='15px'>
-                        <Typography style={{cursor: "pointer"}}>RU</Typography>
-                        <Typography style={{cursor: "pointer"}}>LV</Typography>
+                        <Typography style={{ cursor: "pointer" }}>RU</Typography>
+                        <Typography style={{ cursor: "pointer" }}>LV</Typography>
                     </Stack>
                 </Stack>
                 <Stack sx={{ ...style, justifyContent: "space-between", background: "#F4F5F9", padding: "10px 65px" }} >
-                    <Button startIcon={<SVGIcons icon="menu" />} onClick={() => window.location.pathname = '/search'} >Каталог товаров</Button>
+                    <Link to={'/search'}>
+                        <Button startIcon={<SVGIcons icon="menu" />} >Каталог товаров</Button>
+                    </Link>
                     <form style={{ ...style, width: "30%" }} >
                         <Box sx={{ display: 'flex', justifyContent: "space-between", alignItems: 'center', border: "1px solid #c4c4c4", borderRadius: "30px", overflow: "hidden", background: "#fff", width: "100%" }}>
                             <Box width="10%" height="100%" sx={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
@@ -53,7 +56,7 @@ const Layout = ({ children }) => {
                     <Typography variant="b" marginBottom='10px'>
                         Контакты
                     </Typography>
-                    <Button style={{paddingRight: '60px'}} startIcon={<SVGIcons icon="phone" />}>+38 097 435 6743</Button>
+                    <Button style={{ paddingRight: '60px' }} startIcon={<SVGIcons icon="phone" />}>+38 097 435 6743</Button>
                     <Button startIcon={<SVGIcons icon="email" />}>Kidsshop@gmail.com</Button>
                     <Button startIcon={<SVGIcons icon="email" />}>Kidsshop@gmail.com</Button>
                 </Stack>
