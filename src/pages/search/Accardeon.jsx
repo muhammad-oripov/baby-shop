@@ -129,9 +129,9 @@ export default function Accardeon({ type, onBrand, onColor, color, brand }) {
                             <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
                                 <Typography>{i}</Typography>
                             </AccordionSummary>
-                            <AccordionDetails sx={{ display: 'flex', flexDirection: 'column', gap: '4px'}}>
+                            <AccordionDetails sx={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                                 {
-                                    links.map((item) => <Button sx={{textDecoration: 'underline', color: 'grey !important', display:'flex', justifyContent: 'flex-start', alignItems: 'flex-start'}}>{item}</Button> )
+                                    links.map((item, idx) => <Button key={idx} sx={{ textDecoration: 'underline', color: 'grey !important', display: 'flex', justifyContent: 'flex-start', alignItems: 'flex-start' }}>{item}</Button>)
                                 }
                             </AccordionDetails>
                         </Accordion>)

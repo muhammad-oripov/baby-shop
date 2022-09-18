@@ -136,9 +136,7 @@ const SearchPage = () => {
                         <SelectSmall />
                     </Box>
                     <Box sx={{ width: '100%', display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-                        {
-                            <ProductBlock products={currentProduct} />
-                        }
+                        <ProductBlock products={currentProduct} />
                     </Box>
                     <Box sx={{ position: 'absolute', gap: '10px', top: '1330px', left: '0', width: '100%', marginTop: '30px', display: 'flex', justifyContent: 'center' }}>
                         <button className='btn_paginate' style={{ transition: '.2s ease', padding: '10px', cursor: 'pointer', background: '#F4F5F9', border: 'none', borderRadius: '1000px', width: pageCount.length > 10 ? '50px' : '70px', height: '70px', fontSize: '20px' }} onClick={prevpage}>{'<'}</button>

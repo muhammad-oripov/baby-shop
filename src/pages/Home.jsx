@@ -1,4 +1,3 @@
-import { Box } from "@mui/system";
 import React from "react";
 import { Helmet } from "react-helmet";
 import SwiperComponent from "../Components/swiper/SwiperComponent";
@@ -22,17 +21,6 @@ export default function Home() {
 		},
 	];
 
-	const arrPr = [
-		{
-			title: "pampers"
-		},
-		{
-			title: "pampers"
-		},
-		{
-			title: "pampers"
-		},
-	]
 	return (
 		<>
 			<Helmet>
@@ -70,13 +58,4 @@ export function Images({ item }) {
 			/>
 		</div>
 	);
-}
-
-
-const ItemProd = ({ item }) => {
-	return (
-		<div style={{ width: "200px", height: "100%", background: "red" }} >
-			<h1>{item.title}</h1>
-		</div>
-	)
 }
