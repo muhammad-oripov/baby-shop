@@ -13,7 +13,8 @@ const SearchPage = () => {
     const [productsPerPage] = useState(8)
     const [brands, setBrands] = useState([])
     const [colors, setColors] = useState([])
-
+    const [pixel, setPixel] = useState('1330px')
+    
     useEffect(() => {
         setProdusts([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18])
     }, [])
@@ -22,7 +23,7 @@ const SearchPage = () => {
     const lastPageIndex = currentPage * productsPerPage
     const firstPageIndex = lastPageIndex - productsPerPage
     const currentProduct = products.slice(firstPageIndex, lastPageIndex)
-    // active dsdsd
+
     let act
     useEffect(() => {
         act = document.querySelectorAll('#act')
@@ -81,6 +82,8 @@ const SearchPage = () => {
         setBrands([])
         setColors([])
     }
+
+
     return (
         <>
             <Helmet>
@@ -90,8 +93,8 @@ const SearchPage = () => {
                 />
                 <title>Bernu: Поищите что нибудь для вашего ребенка</title>
             </Helmet>
-            <span style={{ display: 'flex', width: '94%', margin: '0px auto', marginTop: '20px', marginBottom: '-24px', alignItems: 'center', gap: '10px', color: '#686877', fontSize: '24px' }}>Результаты поиска: <h4 style={{ color: 'black' }}>Детская коляска</h4></span>
-            <Stack sx={{ width: '94%', gap: '20px', margin: '0 auto', paddingTop: '40px', paddingBottom: '40px', flexDirection: 'row' }}>
+            <span style={{ display: 'flex', position: 'relative !important', width: '94%', margin: '0px auto', marginTop: '20px', marginBottom: '-24px', alignItems: 'center', gap: '10px', color: '#686877', fontSize: '24px' }}>Результаты поиска: <h4 style={{ color: 'black' }}>Детская коляска</h4></span>
+            <Stack sx={{ marginBottom: '70px !important', width: '94%', gap: '20px', margin: '0 auto', paddingTop: '40px', paddingBottom: '40px', flexDirection: 'row' }}>
                 <Box sx={{ width: '21%', display: 'flex', flexDirection: 'column', gap: '30px' }}>
                     <Stack sx={{ width: '100%', border: '2px solid #74CCD8', borderRadius: '20px', overflow: 'hidden' }} className="nav">
                         <Box sx={{ padding: '25px', background: '#74CCD8', paddingBottom: '15px', paddingTop: '15px', display: 'flex', alignItems: 'center', gap: '15px' }}>
@@ -136,9 +139,9 @@ const SearchPage = () => {
                         <SelectSmall />
                     </Box>
                     <Box sx={{ width: '100%', display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-                        <ProductBlock products={currentProduct} />
+                        <ProductBlock onPixel={setPixel} products={currentProduct} />
                     </Box>
-                    <Box sx={{ position: 'absolute', gap: '10px', top: '1330px', left: '0', width: '100%', marginTop: '30px', display: 'flex', justifyContent: 'center' }}>
+                    <Box sx={{ gap: '10px', width: '100%', marginTop: '30px', display: 'flex', justifyContent: 'center' }}>
                         <button className='btn_paginate' style={{ transition: '.2s ease', padding: '10px', cursor: 'pointer', background: '#F4F5F9', border: 'none', borderRadius: '1000px', width: pageCount.length > 10 ? '50px' : '70px', height: '70px', fontSize: '20px' }} onClick={prevpage}>{'<'}</button>
                         {
                             pageCount.map((num, index) =>
