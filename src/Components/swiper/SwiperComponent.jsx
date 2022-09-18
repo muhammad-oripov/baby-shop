@@ -31,7 +31,6 @@ export default function SwiperComponent(props) {
             ))}
           </Swiper>
         </div>
-<<<<<<< HEAD
         {
           props.skid ? (
             <div className="skidka">
@@ -44,8 +43,6 @@ export default function SwiperComponent(props) {
             </div>
           )
         }
-=======
->>>>>>> 6b95b5f6b6ab24585ec8a81ec4e0cc1ff9950a40
       </div>
     </>
   );
