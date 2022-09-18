@@ -29,10 +29,6 @@ export default function SwiperComponent(props) {
             ))}
           </Swiper>
         </div>
-        <div className="skidka">
-          <img src="/swiper/skidka.png" alt="img" />
-          <img src="/swiper/baby.png" alt="img" />
-        </div>
       </div>
     </>
   );

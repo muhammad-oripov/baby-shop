@@ -1951,14 +1951,50 @@ const SVGIcons = ({ icon }) => {
         <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M5.66164 15.3923V8.55063H7.9572L8.3016 5.88351H5.66164V4.18094C5.66164 3.40898 5.87513 2.88291 6.98336 2.88291L8.39452 2.88233V0.496756C8.15048 0.465043 7.31278 0.392334 6.33778 0.392334C4.30183 0.392334 2.90798 1.63506 2.90798 3.91679V5.88351H0.605469V8.55063H2.90798V15.3923H5.66164Z" fill="white" />
         </svg>
-      );
-    case "galka":
+      )
+    case "cancel":
       return (
-        <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M6.26592 9.34558C5.96012 9.76064 5.48389 10.0157 4.96899 10.0411C4.45408 10.0667 3.95538 9.85918 3.61036 9.476L0.518567 6.04494C0.0271836 5.49998 0.0708331 4.65992 0.615798 4.16854C1.16129 3.67715 2.00082 3.72106 2.4922 4.26629L4.67964 6.69393C4.71205 6.73 4.7591 6.74935 4.80746 6.74699C4.85607 6.74464 4.90051 6.72033 4.92952 6.68165L9.42568 0.583529C9.86087 -0.00717695 10.6926 -0.132898 11.2835 0.302552C11.874 0.738001 11.9994 1.56969 11.564 2.16014L6.26592 9.34558Z" fill="white" />
+        <svg width="12" height="12" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0.665039 0.525391L6.66502 6.52537" stroke="#B7B8C5" stroke-linecap="round" />
+          <path d="M6.8418 0.525391L0.841813 6.52537" stroke="#B7B8C5" stroke-linecap="round" />
         </svg>
-
-      );
+      )
+      break
+    case "pink":
+      return (
+        <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.268555" y="0.852783" width="30" height="30" rx="15" fill="#F39999" />
+        </svg>
+      )
+      break
+    case "black":
+      return (
+        <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.468552" y="0.852783" width="30" height="30" rx="15" fill="#090F24" />
+        </svg>
+      )
+      break
+    case "lightgreen":
+      return (
+        <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.668549" y="0.852783" width="30" height="30" rx="15" fill="#69CB87" />
+        </svg>
+      )
+      break
+    case "lightbrown":
+      return (
+        <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.86853" y="0.852783" width="30" height="30" rx="15" fill="#9C7C75" />
+        </svg>
+      )
+      break
+    case "lightblue":
+      return (
+        <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.0685425" y="0.852783" width="30" height="30" rx="15" fill="#A2D0DA" />
+        </svg>
+      )
+      break
     default:
       break;
   }

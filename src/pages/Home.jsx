@@ -26,17 +26,21 @@ export default function Home() {
 			<Helmet>
 				<link
 					rel="icon"
-					href="https://static.npmjs.com/attachments/ck3uweazy72ye8874y9kkxnx1-gak.png"
+					href="/public/logo.png"
 				/>
 				<title>Bernu: подарки для ваших детей</title>
 			</Helmet>
-			<div>
+			<div style={{ display: 'flex', alignItems: 'center', width: '97%', margin: '0 auto' }}>
 				<SwiperComponent
 					arr={cardImg}
 					card={Images}
 					slides={1}
 					pagination={true}
 				/>
+				<div className="skidka">
+					<img src="/swiper/skidka.png" alt="img" />
+					<img src="/swiper/baby.png" alt="img" />
+				</div>
 			</div>
 		</>
 	);
