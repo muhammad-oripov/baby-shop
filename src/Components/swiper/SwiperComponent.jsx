@@ -7,11 +7,13 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "./swiper.css";
 
+
 export default function SwiperComponent(props) {
+  console.log(props);
   return (
     <>
       <div className="content">
-        <div className="swiper">
+        <div className="swiper" style={{ width: props.wid === true ? '75%' : '100%' }}>
           <Swiper
             modules={[Navigation, Pagination, A11y]}
             spaceBetween={50}
@@ -20,7 +22,7 @@ export default function SwiperComponent(props) {
             pagination={props.pagination ? { clickable: true } : false}
             onSwiper={(swiper) => console.log(swiper)}
             onSlideChange={() => console.log("slide change")}
-            style={{ height: "100%", width: "100%", borderRadius: "15px", color : "#ccc"}}
+            style={{ height: "100%", width: "100%", borderRadius: "15px", color: "#ccc", paddingLeft: props.pad === true ? '40px' : '0px'}}
           >
             {props.arr.map((item, idx) => (
               <SwiperSlide key={idx}>
@@ -29,10 +31,18 @@ export default function SwiperComponent(props) {
             ))}
           </Swiper>
         </div>
-        <div className="skidka">
-          <img src="/swiper/skidka.png" alt="img" />
-          <img src="/swiper/baby.png" alt="img" />
-        </div>
+        {
+          props.skid ? (
+            <div className="skidka">
+              <img src="/swiper/skidka.png" alt="img" />
+              <img src="/swiper/baby.png" alt="img" />
+            </div>
+          ) : (
+            <div style={{ width: '0px', height: '0px' }}>
+              <></>
+            </div>
+          )
+        }
       </div>
     </>
   );

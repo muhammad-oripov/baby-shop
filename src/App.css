@@ -6,6 +6,10 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 a {
   color: black !important;
   text-decoration: none !important;
@@ -25,4 +29,8 @@ button {
   width: 60px !important;
   height: 60px !important;
   border-radius: 1000px !important;
+} 
+.MuiBox-root .swiper-slide{
+  width: 259.25px !important;
 }
+
