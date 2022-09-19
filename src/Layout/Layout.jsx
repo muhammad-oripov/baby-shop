@@ -1,7 +1,8 @@
-import { Stack, Link, Button, Box, IconButton, Typography } from '@mui/material'
+import { Stack, Button, Box, Typography } from '@mui/material'
 import React from 'react'
 import AccountMenu from '../Components/AccountMenu'
 import SVGIcons from '../Components/SVGIcons'
+import { Link } from 'react-router-dom'
 
 const Layout = ({ children }) => {
     const style = {
@@ -15,24 +16,26 @@ const Layout = ({ children }) => {
                 <Stack sx={{ ...style, justifyContent: "space-between" }} m='15px 50px'>
                     <SVGIcons icon="logo" />
                     <Stack sx={{ ...style, gap: "25px" }}>
-                        <Link>О нас</Link>
-                        <Link>Оплата и доставка</Link>
-                        <Link>Отзывы</Link>
-                        <Link>FAQ</Link>
-                        <Link>Блог</Link>
-                        <Link>Контакты</Link>
+                        <Link to="#" >О нас</Link>
+                        <Link to="#" >Оплата и доставка</Link>
+                        <Link to="#" >Отзывы</Link>
+                        <Link to="#" >FAQ</Link>
+                        <Link to="#" >Блог</Link>
+                        <Link to="#" >Контакты</Link>
                     </Stack>
                     <Stack sx={style} gap='10px'>
                         <Button startIcon={<SVGIcons icon="phone" />}>+38 097 435 6743</Button>
                         <Button startIcon={<SVGIcons icon="email" />}>Kidsshop@gmail.com</Button>
                     </Stack>
                     <Stack sx={style} gap='15px'>
-                        <Typography style={{cursor: "pointer"}}>RU</Typography>
-                        <Typography style={{cursor: "pointer"}}>LV</Typography>
+                        <Typography style={{ cursor: "pointer" }}>RU</Typography>
+                        <Typography style={{ cursor: "pointer" }}>LV</Typography>
                     </Stack>
                 </Stack>
                 <Stack sx={{ ...style, justifyContent: "space-between", background: "#F4F5F9", padding: "10px 65px" }} >
-                    <Button startIcon={<SVGIcons icon="menu" />} onClick={() => window.location.pathname = '/search'} >Каталог товаров</Button>
+                    <Link to={'/search'}>
+                        <Button startIcon={<SVGIcons icon="menu" />} >Каталог товаров</Button>
+                    </Link>
                     <form style={{ ...style, width: "30%" }} >
                         <Box sx={{ display: 'flex', justifyContent: "space-between", alignItems: 'center', border: "1px solid #c4c4c4", borderRadius: "30px", overflow: "hidden", background: "#fff", width: "100%" }}>
                             <Box width="10%" height="100%" sx={{ display: "flex", justifyContent: "center", alignItems: "center" }} >
@@ -53,7 +56,7 @@ const Layout = ({ children }) => {
                     <Typography variant="b" marginBottom='10px'>
                         Контакты
                     </Typography>
-                    <Button style={{paddingRight: '60px'}} startIcon={<SVGIcons icon="phone" />}>+38 097 435 6743</Button>
+                    <Button style={{ paddingRight: '60px' }} startIcon={<SVGIcons icon="phone" />}>+38 097 435 6743</Button>
                     <Button startIcon={<SVGIcons icon="email" />}>Kidsshop@gmail.com</Button>
                     <Button startIcon={<SVGIcons icon="email" />}>Kidsshop@gmail.com</Button>
                 </Stack>
@@ -63,18 +66,18 @@ const Layout = ({ children }) => {
                     </Typography>
                     <Stack sx={{ ...style, alignItems: "flex-start", gap: "40px" }} >
                         <Stack gap='17px'>
-                            <Link>О нас</Link>
-                            <Link>Оплата и доставка</Link>
-                            <Link>Отзывы</Link>
-                            <Link>FAQ</Link>
-                            <Link>Блог</Link>
-                            <Link>Контакты</Link>
+                            <Link to="#" >О нас</Link>
+                            <Link to="#" >Оплата и доставка</Link>
+                            <Link to="#" >Отзывы</Link>
+                            <Link to="#" >FAQ</Link>
+                            <Link to="#" >Блог</Link>
+                            <Link to="#" >Контакты</Link>
                         </Stack>
                         <Stack gap='17px'>
-                            <Link>О нас</Link>
-                            <Link>Оплата и доставка</Link>
-                            <Link>Отзывы</Link>
-                            <Link>FAQ</Link>
+                            <Link to="#" >О нас</Link>
+                            <Link to="#" >Оплата и доставка</Link>
+                            <Link to="#" >Отзывы</Link>
+                            <Link to="#" >FAQ</Link>
                         </Stack>
                     </Stack>
                 </Stack>
