@@ -59,3 +59,9 @@ button {
 .skidka img{
   width: 456px;
 }
+.MuiButtonBase-root:hover{
+  background: none !important;
+}
+.css-1rzldgd button:hover{
+  background-color: rgb(2, 167, 2)!important;
+}
