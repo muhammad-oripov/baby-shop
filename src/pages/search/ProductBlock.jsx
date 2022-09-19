@@ -9,7 +9,9 @@ const ProductBlock = ({ products }) => {
         <>
             {
                 products.map(() =>
-                    <Box sx={{ width: '23%', borderRadius: '10px', border: '1px solid #E4E7EE', height: '520px', padding: '10px' }}>
+                    <Box
+                        onClick={() => window.location.pathname = '/product'}
+                        sx={{ width: '23%', borderRadius: '10px', border: '1px solid #E4E7EE', height: '520px', padding: '10px' }}>
                         <img style={{ width: '100%', borderRadius: '10px' }} src="/swiper/bed.png" alt="" />
                         <Box sx={{ padding: '10px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                             <Typography sx={{ display: 'flex', gap: '15px', fontWeight: '600', fontSize: '18px' }} vatiant="h4">100 € <span style={{ color: '#c4c4c4' }}>250 €</span> </Typography>
