@@ -1,14 +1,23 @@
 import { Box } from "@mui/system";
 import React from "react";
 import { Helmet } from "react-helmet";
-import SwiperComponent from "../Components/swiper/SwiperComponent";
-import Swiper_shop from "../Components/swiper/Swiper_shop";
-import { Images } from "../Components/swiper/Swip_arr";
-import { cardImg } from "../Components/swiper/Swip_arr";
-import { Swip_arr1 } from "../Components/swiper/Swip_arr";
+import { Images } from "../Components/swiper/Swiper_compo/Swip_arr";
+import { cardImg } from "../Components/swiper/Swiper_compo/Swip_arr";
+import { Swip_arr1 } from "../Components/swiper/Swiper_compo/Swip_arr";
+import SwiperComponent from "../Components/swiper/Swiper_compo/SwiperComponent";
+import Swiper_shop from '../Components/swiper/Swiper_compo/Swiper_shop'
+import { Swiper_arr2 } from "../Components/swiper/Swiper_compo/Swip_arr";
+import { Swiper_arr3 } from "../Components/swiper/Swiper_compo/Swip_arr";
+import { Swiper_arr4 } from "../Components/swiper/Swiper_compo/Swip_arr";
+import '../App.css'
+import BGimg from '../Components/swiper/images/Rectangle 9 (1).png'
+import BGimg1 from '../Components/swiper/images/image 4 (1).png'
+import Sale from '../Components/swiper/images/Group 775.png'
+import { Button } from "@mui/material";
 
 
 export default function Home() {
+	let lev = false
 	return (
 		<>
 			<Helmet>
@@ -33,29 +42,60 @@ export default function Home() {
 						<SwiperComponent
 							arr={Swip_arr1}
 							card={Swiper_shop}
-							slides={6}
+							slides={5}
 							pagination={false}
 							pad={true}
+							level={true}
 						/>
 					</Box>
-					<Box maxWidth='1920px' height='610px' textAlign='center' display='flex' flexDirection='column' gap='30px' bgcolor='#F4F5F9'>
-						<h1 style={{ marginTop: '60px' }}>Акции и скидки</h1>
+					<Box maxWidth='1920px' height={lev === true ? '610px' : '735px'} textAlign='center' display='flex' flexDirection='column' gap='30px' bgcolor='#F4F5F9'>
+						<h1 style={{ marginTop: lev === true ? '40px' : '60px' }}>Акции и скидки</h1>
 						<SwiperComponent
-							arr={Swip_arr1}
+							arr={Swiper_arr2}
 							card={Swiper_shop}
-							slides={6}
-							pagination={false}
+							slides={5}
 							pad={true}
+							level={false}
 						/>
 					</Box>
-					<Box>
-
+					<Box width='100%' height='270px' display='flex' position={'relative'}>
+						<Box width='74%' height='100%' position='relative' fontFamily='sans-serif'>
+							<img src={BGimg} alt="" style={{ objectFit: 'cover', width: '100%', height: '100%', position: 'absolute', zIndex: '100' }} />
+							<img src={Sale} alt="" style={{ position: 'absolute', zIndex: '500', top: '-63px' }} />
+							<Box width='730px' position='absolute' zIndex='1000' display='flex' flexDirection='column' gap='10px' top='50%' left='50%' sx={{ transform: 'translate(-50%,-50%)' }}>
+								<h1>Получайте информацию о скидках первыми</h1>
+								<span>Оформите подписку и вы будете вкурсе всех наших выгодных акций и скидок</span>
+								<Box display='flex' gap='20px' marginTop='5px'>
+									<input type="text" style={{ width: '500px', height: '45px', borderRadius: '34px', border: '1px solid #50909C', padding: '20px' }} />
+									<Button sx={{ width: '230px', height: '46px', bgcolor: '#74CCD8', borderRadius: '25px', color: 'white' }}>Оформить подписку</Button>
+								</Box>
+							</Box>
+						</Box>
+						<Box width='30%' height='100%' position={'absolute'} zIndex={'10'} right={'0px'}>
+							<img src={BGimg1} alt="" style={{ objectFit: 'cover', width: '100%', height: '100%', position: 'absolute', right: '0px', zIndex: '10' }} />
+						</Box>
 					</Box>
-					<Box>
-
+					<Box display='flex' flexDirection='column' margin='0px auto'>
+						<Box maxWidth='1920px' height='735px' textAlign='center' display='flex' flexDirection='column' gap='30px'>
+							<h1 style={{ marginTop: '60px' }}>Популярные товары</h1>
+							<SwiperComponent
+								arr={Swiper_arr3}
+								card={Swiper_shop}
+								slides={5}
+								pad={true}
+								level={false}
+							/>
+						</Box>
 					</Box>
-					<Box>
-
+					<Box maxWidth='1920px' height={lev === true ? '610px' : '735px'} textAlign='center' display='flex' flexDirection='column' gap='30px' bgcolor='#F4F5F9'>
+						<h1 style={{ marginTop: lev === true ? '40px' : '60px' }}>Акции и скидки</h1>
+						<SwiperComponent
+							arr={Swiper_arr4}
+							card={Swiper_shop}
+							slides={5}
+							pad={true}
+							level={false}
+						/>
 					</Box>
 				</Box>
 			</div>
