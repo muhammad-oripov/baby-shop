@@ -5,11 +5,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import "./swiper.css";
+import "../swiper.css";
 
 
 export default function SwiperComponent(props) {
-  console.log(props);
   return (
     <>
       <div className="content">
@@ -20,13 +19,11 @@ export default function SwiperComponent(props) {
             slidesPerView={props.slides}
             navigation
             pagination={props.pagination ? { clickable: true } : false}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log("slide change")}
             style={{ height: "100%", width: "100%", borderRadius: "15px", color: "#ccc", paddingLeft: props.pad === true ? '40px' : '0px'}}
           >
             {props.arr.map((item, idx) => (
               <SwiperSlide key={idx}>
-                <props.card item={item} />
+                <props.card item={item} level={props.level} />
               </SwiperSlide>
             ))}
           </Swiper>
