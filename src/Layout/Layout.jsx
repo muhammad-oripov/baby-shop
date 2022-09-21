@@ -48,7 +48,7 @@ const Layout = ({ children }) => {
                     <AccountMenu />
                 </Stack>
             </header>
-            <main style={{ maxWidth: "1920px", margin: "0 auto" }} >
+            <main style={{ maxWidth: "1920px !important" , margin: "0 auto",}} >
                 {children}
             </main>
             <footer style={{ maxWidth: "1920px", margin: "0 auto", ...style, justifyContent: "space-between", padding: "40px 170px" }} >

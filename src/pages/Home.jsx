@@ -36,13 +36,13 @@ export default function Home() {
 					skid={true}
 					wid={true}
 				/>
-				<Box display='flex' flexDirection='column' margin='0px auto'>
-					<Box maxWidth='1920px' height='610px' textAlign='center' display='flex' flexDirection='column' gap='30px'>
+				<Box display='flex' flexDirection='column' margin='0px auto' width='100%'>
+					<Box width='100%' height='610px' textAlign='center' display='flex' flexDirection='column' gap='30px'>
 						<h1 style={{ marginTop: '60px' }}>Вы уже смотрели</h1>
 						<SwiperComponent
 							arr={Swip_arr1}
 							card={Swiper_shop}
-							slides={5}
+							slides={4}
 							pagination={false}
 							pad={true}
 							level={true}
@@ -53,7 +53,7 @@ export default function Home() {
 						<SwiperComponent
 							arr={Swiper_arr2}
 							card={Swiper_shop}
-							slides={5}
+							slides={4}
 							pad={true}
 							level={false}
 						/>
@@ -75,13 +75,13 @@ export default function Home() {
 							<img src={BGimg1} alt="" style={{ objectFit: 'cover', width: '100%', height: '100%', position: 'absolute', right: '0px', zIndex: '10' }} />
 						</Box>
 					</Box>
-					<Box display='flex' flexDirection='column' margin='0px auto'>
-						<Box maxWidth='1920px' height='735px' textAlign='center' display='flex' flexDirection='column' gap='30px'>
+					<Box display='flex' flexDirection='column' margin='0px auto' width="100%" >
+						<Box height='735px' textAlign='center' display='flex' flexDirection='column' gap='30px'>
 							<h1 style={{ marginTop: '60px' }}>Популярные товары</h1>
 							<SwiperComponent
 								arr={Swiper_arr3}
 								card={Swiper_shop}
-								slides={5}
+								slides={4}
 								pad={true}
 								level={false}
 							/>
@@ -92,7 +92,7 @@ export default function Home() {
 						<SwiperComponent
 							arr={Swiper_arr4}
 							card={Swiper_shop}
-							slides={5}
+							slides={4}
 							pad={true}
 							level={false}
 						/>
