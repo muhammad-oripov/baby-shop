@@ -6,10 +6,20 @@ import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
+import { useDispatch } from 'react-redux';
+import { likeproduct } from '../../../store/features/products/productSlice';
+
 
 
 const Swiper_shop = ({ item, level }) => {
     const [value, setValue] = useState(2);
+    const [like, setLike] = useState(false)
+    const dispatch = useDispatch();
+
+    const handleLike = () => {
+        dispatch(likeproduct(item))
+        setLike(!like)
+    }
 
     return (
         <>
@@ -22,8 +32,11 @@ const Swiper_shop = ({ item, level }) => {
                                 <Button sx={{ width: '52px', height: '56px', borderRadius: '100%' }}>
                                     <SVGIcons icon={item.leftIcon} />
                                 </Button>
-                                <Button sx={{ width: '52px', height: '56px', borderRadius: '100%' }}>
-                                    <SVGIcons icon="Liked" />
+                                <Button 
+                                    onClick={handleLike}
+                                    sx={{ width: '52px', height: '56px', borderRadius: '100%' }}
+                                >
+                                    <SVGIcons icon="Liked" checked={like}  />
                                 </Button>
                             </Box>
                         </Box>
@@ -43,8 +56,15 @@ const Swiper_shop = ({ item, level }) => {
                                 <Button sx={{ width: '52px', height: '56px', borderRadius: '100%' }}>
                                     <SVGIcons icon={item.leftIcon} />
                                 </Button>
-                                <Button sx={{ width: '52px', height: '56px', borderRadius: '100%' }}>
-                                    <SVGIcons icon="Liked" />
+                                <Button 
+                                    onClick={handleLike}
+                                    sx={{ 
+                                        width: '52px', 
+                                        height: '56px',
+                                        borderRadius: '100%' 
+                                    }}
+                                >
+                                    <SVGIcons icon="Liked" checked={like}  />
                                 </Button>
                             </Box>
                         </Box>

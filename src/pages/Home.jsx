@@ -1,5 +1,5 @@
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Images } from "../Components/swiper/Swiper_compo/Swip_arr";
 import { cardImg } from "../Components/swiper/Swiper_compo/Swip_arr";
@@ -14,10 +14,21 @@ import BGimg from '../Components/swiper/images/Rectangle 9 (1).png'
 import BGimg1 from '../Components/swiper/images/image 4 (1).png'
 import Sale from '../Components/swiper/images/Group 775.png'
 import { Button } from "@mui/material";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../store/features/products/productThunk";
 
 
 export default function Home() {
 	let lev = false
+	const products = useSelector(state => state.products.data);
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		if(products.length == 0) {
+			dispatch(fetchProducts())
+		}
+	}, []);
+
 	return (
 		<>
 			<Helmet>
