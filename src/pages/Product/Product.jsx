@@ -7,31 +7,122 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import LocalShippingTwoToneIcon from '@mui/icons-material/LocalShippingTwoTone';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import StarIcon from '@mui/icons-material/Star'
 import CheckIcon from '@mui/icons-material/Check'
 import InstagramIcon from '@mui/icons-material/Instagram'
-import PlayCircleIcon from '@mui/icons-material/PlayCircle'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import { Button, Stack, Typography } from '@mui/material';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
+     let styleClass = "star-rating-blank";
+     if (rating && rating >= starId) {
+          styleClass = "star-rating-filled";
+     }
+
+     return (
+          <div
+               className="star"
+               onMouseEnter={onMouseEnter}
+               onMouseLeave={onMouseLeave}
+               onClick={onClick}
+          >
+               <svg
+                    class={styleClass}
+                    viewBox="0 0 25 23"
+                    data-rating="1"
+               >
+                    <polygon
+                         stroke-width="0"
+                         points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78"
+                    />
+               </svg>
+          </div>
+     );
+};
 function Product () {
+     //Products
+     const products = useSelector(state => console.log(state))
+          
+     // console.log(products);
+
+     //active
+     const [isActive, setIsActive] = useState(false);
+     //slider
+     const [cuurentImg, setImg] = useState('image0.png')
+     const sliderImgs = [
+          {
+               img: '/img/image-0.png',
+               alt : 'Product'
+          },
+          {
+               img: '/img/image-1.png',
+               alt : 'Product'
+          },
+          {
+               img: '/img/image-2.png',
+               alt : 'Product'
+          },
+          {
+               img: '/img/image-3.png',
+               alt : 'Product'
+          },
+          {
+               img: '/img/image-4.png',
+               alt : 'Product'
+          },
+     ]
+     const models_img = [
+          {
+               img: '/img/image-1.png',
+               alt: 'Product'
+          },
+          {
+               img: '/img/image-2.png',
+               alt: 'Product'
+          },
+          {
+               img: '/img/image-3.png',
+               alt: 'Product'
+          },
+          {
+               img: '/img/image-4.png',
+               alt: 'Product'
+          },
+          {
+               img: '/img/image-5.png',
+               alt: 'Product'
+          },
+     ]
+     //Input Size
      const [size, setSize] = React.useState('');
 
-     const handleChange = (event) => {
-          setSize(event.target.value);
+     //Stars
+     const [rating, setRating] = useState(0);
+     const [hoverRating, setHoverRating] = useState(0);
+     const stars = [1, 2, 3, 4, 5];
+     //Counter
+     let [num, setNum] = useState(0);
+     let incNum = () => {
+          if (num < 10) {
+               setNum(Number(num) + 1);
+          }
+     };
+     let decNum = () => {
+          num > 0 ?  setNum(num - 1) : setNum(0)
+     }
+     
+     //Input Change Size
+     let handleChange = (e) => {
+          setSize(e.target.value);
+     }
+     const handleActive = event => {
+          // 👇️ toggle isActive state on click
+          setIsActive(current => !current);
      };
 
-     const [isHover, setIsHover] = useState(false);
+     
 
-     const handleMouseEnter = () => {
-          setIsHover(true);
-     };
-     const handleMouseLeave = () => {
-          setIsHover(false);
-     };
-     const hoverStyle = {
-          color: isHover ? '#090F24;' : '#686877',
-     };
 return (
        
      <>
@@ -43,10 +134,8 @@ return (
                          color="primary" aria-label="upload picture" component="label">
                          <Link
                               className='pathBtn'
-                              style={hoverStyle}
-                              onMouseEnter={handleMouseEnter}
-                              onMouseLeave={handleMouseLeave}
-                              to="/"><HouseIcon /></Link>
+                              to="/"><HouseIcon />
+                         </Link>
                     </IconButton>
                     <NavigateNextIcon
                          style={{ fontSize: '22px', textAlign: 'center', height: '100%', paddingTop: '2px', fontWeight: '300', color: '#686877' }}
@@ -55,9 +144,6 @@ return (
                          
                          <Link
                               className='pathBtn'
-                              style={hoverStyle}
-                              onMouseEnter={handleMouseEnter}
-                              onMouseLeave={handleMouseLeave}
                               to="/catalog">Каталог</Link>
                     </h3>
                     <NavigateNextIcon
@@ -67,9 +153,6 @@ return (
                          
                          <Link
                               className='pathBtn'
-                              style={hoverStyle}
-                              onMouseEnter={handleMouseEnter}
-                              onMouseLeave={handleMouseLeave}
                               to="/">Детские коляски</Link>
                     </h3>
                     <NavigateNextIcon
@@ -78,9 +161,6 @@ return (
                     <h3>
                          <Link
                               className='pathBtn'
-                              style={hoverStyle}
-                              onMouseEnter={handleMouseEnter}
-                              onMouseLeave={handleMouseLeave}
                               to="/">Коляски-трости</Link>
                       </h3>
                       
@@ -95,24 +175,17 @@ return (
                               <Stack direction='column' alignItems='center'>
                                    <Stack className='product_slider' gap='5px' direction='column'>
                                         <Box className='product_slider_mainImg'>
-                                             <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src="/img/image0.png" alt="Main Img" />
+                                             <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src={`/img/${cuurentImg}`} alt="Main Img" />
                                         </Box>
                                         <Stack direction='row' gap='10px' width='100%' justifyContent='space-evenly' >
-                                             <Box className='product_slider_itemImg itemImg_act' >
-                                                  <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src="/img/image2.png" alt="Product" />
-                                             </Box>
-                                             <Box className='product_slider_itemImg' >
-                                                  <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src="/img/image2.png" alt="Product" />
-                                             </Box>
-                                             <Box className='product_slider_itemImg' >
-                                                  <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src="/img/image2.png" alt="Product" />
-                                             </Box>
-                                             <Box className='product_slider_itemImg' >
-                                                  <img style={{ width: '100%', height: '100%', objectFit: 'cover' }}  src="/img/image2.png" alt="Product" />
-                                             </Box>
-                                             <Box className='product_slider_itemImg' >
-                                                  <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src="/img/image2.png" alt="Product" />
-                                             </Box>
+                                             {
+                                                  sliderImgs.map((item, index) => {
+                                                       <Box className='product_slider_itemImg itemImg_act' key={index} >
+                                                            <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} onClick={() => setImg(item.img)} src={`${item.img}`} alt={`${item.alt}`} />
+                                                       </Box>
+                                                       console.log(item.img)
+                                                  })
+                                             }
                                              <Box className='product_slider_itemImg row center' bgcolor='#F4F5F9' borderRadius='8px' >
                                                        <Typography fontSize='22px' fontWeight='500' lineHeight='30px' >+3</Typography>
                                              </Box>
@@ -155,12 +228,17 @@ return (
                                                   <img src="/img/HIPP-Logo.png" alt="Logo" />
                                              </Box>
                                         </Box>
-                                        <Box display='flex' gap='7px' width='100%' alignItems='center' justifyContent='flex-start' style={{ lineHeight: '20px', fontSize: '14px', fontWeight: '400', color: '#B7B8C5' }} >
-                                             <StarIcon style={{color: '#FFC186', width: '20px', height: '20px' }} />
-                                             <StarIcon style={{color: '#FFC186', width: '20px', height: '20px' }} />
-                                             <StarIcon style={{color: '#FFC186', width: '20px', height: '20px' }} />
-                                             <StarIcon style={{color: '#FFC186', width: '20px', height: '20px' }} />
-                                             <StarIcon />
+                                        <Box className='row' gap='7px' width='100%' alignItems='center' justifyContent='flex-start' style={{ lineHeight: '20px', fontSize: '14px', fontWeight: '400', color: '#B7B8C5' }} >
+                                             {stars.map((star, i) => (
+                                                  <Star
+                                                       key={i}
+                                                       starId={i}
+                                                       rating={hoverRating || rating}
+                                                       onMouseEnter={() => setHoverRating(i)}
+                                                       onMouseLeave={() => setHoverRating(0)}
+                                                       onClick={() => setRating(i)}
+                                                  />
+                                             ))}
                                              <span>3 отзыва</span>
                                         </Box>
                                    </Box>
@@ -199,9 +277,18 @@ return (
                                              <Typography className='old_price'>2500 $</Typography>
                                         </Box>
                                         <Box display='flex' gap='5px'>
-                                             <Box display='flex' alignItems='center' justifyContent='center' width='40px' height='40px' borderRadius='4px' bgcolor='#F4F5F9' fontSize='15px' fontWeight='400' >+</Box>
-                                             <Box display='flex' alignItems='center' justifyContent='center' width='50px' height='40px' border='1px solid #E4E7EE' borderRadius='4px'  fontSize='15px' fontWeight='600' >1</Box>
-                                             <Box display='flex' alignItems='center' justifyContent='center' width='40px' height='40px' borderRadius='4px' bgcolor='#F4F5F9' fontSize='15px' fontWeight='400' >-</Box>
+                                             <Button
+                                                  className='row center countBtn'
+                                                  type='button'
+                                                  onClick={incNum}
+                                             >+</Button>
+                                             <Box className='row center' width='50px' height='40px' border='1px solid #E4E7EE' borderRadius='4px' fontSize='15px' fontWeight='600' onChange={handleChange}
+                                             >{ num }</Box>
+                                             <Button
+                                                  className='row center countBtn'
+                                                  type='button'
+                                                  onClick={decNum}
+                                             >-</Button>
                                         </Box>
                                    </Box>
                                    <Box>
@@ -234,18 +321,14 @@ return (
                                    </Box>
                                    <Box>
                                         <Stack className='models_img row' spacing={2}>
-                                             <Box className='models_img_item models_img_item_act'>
-                                                       <img src="/img/image1.png" alt="" />
-                                             </Box>
-                                             <Box className='models_img_item '>
-                                                       <img src="/img/image2.png" alt="" />
-                                             </Box>
-                                             <Box className='models_img_item '>
-                                                       <img src="/img/image3.png" alt="" />
-                                             </Box>
-                                             <Box className='models_img_item '>
-                                                       <img src="/img/image4.png" alt="" />
-                                             </Box>
+                                             {
+                                                  models_img.map((item, index) => {
+                                                       <Box key={index} className='models_img_item models_img_item_act'>
+                                                            <img src={item.img} alt={item.alt} />
+                                                       </Box>
+                                                  })     
+                                             }
+                                             
                                              <Box className='models_img_item  row center'>
                                                        <Typography fontSize='22px' fontWeight='500' lineHeight='30px' >+3</Typography>
                                              </Box>

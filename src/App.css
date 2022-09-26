@@ -4,6 +4,11 @@
   box-sizing: border-box;
   outline: none;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  user-select: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 a {
@@ -16,6 +21,16 @@ button {
   color: black !important;
 }
 
+.inputRounded .MuiSelect-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inputRounded .MuiOutlinedInput-root, .inputRounded .MuiButton-root, .inputRounded  .MuiOutlinedInput-notchedOutline {
+  border-radius: 25px;
+}
+
 .MuiPagination-ul li {
   gap: '30px' !important;
   align-items: center !important;
@@ -25,4 +40,22 @@ button {
   width: 60px !important;
   height: 60px !important;
   border-radius: 1000px !important;
+} 
+.MuiBox-root .swiper-slide{
+  width: 259.25px !important;
+}
+
+.btn_paginate:hover {
+  background-color: #c4c4c4 !important;
+}
+
+.pagination_numbers:hover {
+  border: 1px solid #74CCD8 !important;
+}
+.active{
+  background: #74CCD8 !important;
+  color: 'white'
+}
+.skidka img{
+  width: 456px;
 }
