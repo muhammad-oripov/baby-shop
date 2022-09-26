@@ -138,7 +138,7 @@ const SearchPage = () => {
                         <Typography sx={{ color: '#686877', fontSize: '20px' }} variant='span'>Найдено {products.length} товаров </Typography>
                         <SelectSmall />
                     </Box>
-                    <Box sx={{ width: '100%', display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+                    <Box sx={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "10px" }}>
                         <ProductBlock onPixel={setPixel} products={currentProduct} />
                     </Box>
                     <Box sx={{ gap: '10px', width: '100%', marginTop: '30px', display: 'flex', justifyContent: 'center' }}>

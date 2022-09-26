@@ -1,11 +1,9 @@
 import { Box } from "@mui/system";
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { Images } from "../Components/swiper/Swiper_compo/Swip_arr";
-import { cardImg } from "../Components/swiper/Swiper_compo/Swip_arr";
+import { cardImg, Images } from "../Components/swiper/Swiper_compo/Swip_arr";
 import { Swip_arr1 } from "../Components/swiper/Swiper_compo/Swip_arr";
 import SwiperComponent from "../Components/swiper/Swiper_compo/SwiperComponent";
-import Swiper_shop from '../Components/swiper/Swiper_compo/Swiper_shop'
 import { Swiper_arr2 } from "../Components/swiper/Swiper_compo/Swip_arr";
 import { Swiper_arr3 } from "../Components/swiper/Swiper_compo/Swip_arr";
 import { Swiper_arr4 } from "../Components/swiper/Swiper_compo/Swip_arr";
@@ -16,6 +14,7 @@ import Sale from '../Components/swiper/images/Group 775.png'
 import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../store/features/products/productThunk";
+import ItemComponent from "../Components/ItemComponent";
 
 
 export default function Home() {
@@ -51,8 +50,8 @@ export default function Home() {
 					<Box width='100%' height='610px' textAlign='center' display='flex' flexDirection='column' gap='30px'>
 						<h1 style={{ marginTop: '60px' }}>Вы уже смотрели</h1>
 						<SwiperComponent
-							arr={Swip_arr1}
-							card={Swiper_shop}
+							arr={Swiper_arr2}
+							card={ItemComponent}
 							slides={4}
 							pagination={false}
 							pad={true}
@@ -63,7 +62,7 @@ export default function Home() {
 						<h1 style={{ marginTop: lev === true ? '40px' : '60px' }}>Акции и скидки</h1>
 						<SwiperComponent
 							arr={Swiper_arr2}
-							card={Swiper_shop}
+							card={ItemComponent}
 							slides={4}
 							pad={true}
 							level={false}
@@ -90,8 +89,8 @@ export default function Home() {
 						<Box height='735px' textAlign='center' display='flex' flexDirection='column' gap='30px'>
 							<h1 style={{ marginTop: '60px' }}>Популярные товары</h1>
 							<SwiperComponent
-								arr={Swiper_arr3}
-								card={Swiper_shop}
+								arr={Swiper_arr2}
+								card={ItemComponent}
 								slides={4}
 								pad={true}
 								level={false}
@@ -101,8 +100,8 @@ export default function Home() {
 					<Box maxWidth='1920px' height={lev === true ? '610px' : '735px'} textAlign='center' display='flex' flexDirection='column' gap='30px' bgcolor='#F4F5F9'>
 						<h1 style={{ marginTop: lev === true ? '40px' : '60px' }}>Акции и скидки</h1>
 						<SwiperComponent
-							arr={Swiper_arr4}
-							card={Swiper_shop}
+							arr={Swiper_arr2}
+							card={ItemComponent}
 							slides={4}
 							pad={true}
 							level={false}

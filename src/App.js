@@ -3,6 +3,7 @@ import './App.css';
 
 import Layout from './Layout/Layout';
 import Home from './pages/Home';
+import Liked from "./pages/Liked";
 import Login from "./pages/Login";
 import Product from "./pages/Product/Product";
 import SearchPage from "./pages/search/SearchPage";
@@ -16,6 +17,7 @@ function App() {
                     <Route path="/login" exact element={<Login />} />
                     <Route path="/search" exact element={<SearchPage />} />
                     <Route path="/product" exact element={<Product />} />
+                    <Route path="/liked" exact element={<Liked />} />
                     <Route path="*" exact element={'404'} />
                 </Routes>
             </Layout>

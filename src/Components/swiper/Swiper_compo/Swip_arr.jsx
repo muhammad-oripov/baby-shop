@@ -117,36 +117,42 @@ export const Swip_arr1 = [
 
 export const Swiper_arr2 = [
     {
+        id: 1,
         bg: Sale1,
         title: 'Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка',
         leftIcon: 'Discount',
         mony: '100 €',
     },
     {
+        id: 2,
         bg: Sale2,
         title: 'Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка',
         leftIcon: 'Discount',
         mony: '100 €',
     },
     {
+        id: 3,
         bg: Sale3,
         title: 'Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка',
         leftIcon: 'Discount',
         mony: '100 €',
     },
     {
+        id: 4,
         bg: Sale4,
         title: 'Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка',
         leftIcon: 'Discount',
         mony: '100 €',
     },
     {
+        id: 4,
         bg: Sale2,
         title: 'Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка',
         leftIcon: 'Discount',
         mony: '100 €',
     },
     {
+        id: 5,
         bg: Sale3,
         title: 'Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка',
         leftIcon: 'Discount',
