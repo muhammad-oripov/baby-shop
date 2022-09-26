@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {configureStore} from '@reduxjs/toolkit'
 import likedSlice from './features/likedSlice'
 import productSlice from './features/products/productSlice'
@@ -35,3 +36,13 @@ export const store =  configureStore({
 })
 
 export const persistor = persistStore(store)
+=======
+import { configureStore } from '@reduxjs/toolkit'
+import { productSlice } from './features/products/productSlice'
+
+export default configureStore({
+     reducer: {
+          products: productSlice
+     }
+})
+>>>>>>> otabek0302
