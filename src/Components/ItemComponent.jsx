@@ -2,13 +2,12 @@ import React, { useState } from "react";
 import { Box } from "@mui/system";
 import SVGIcons from "./SVGIcons";
 import Button from "@mui/material/Button";
-import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import Rating from "@mui/material/Rating";
 import { useDispatch } from "react-redux";
 import { likedProduct } from "../store/features/likedSlice";
 
-const ItemComponent = ({ item, level = false, isLike = false}) => {
+const ItemComponent = ({ item, level = false, isLike = false }) => {
 	const [value, setValue] = useState(2);
 	const [like, setLike] = useState(isLike);
 	const dispatch = useDispatch();
@@ -18,80 +17,27 @@ const ItemComponent = ({ item, level = false, isLike = false}) => {
 		setLike(!like);
 	};
 
+
 	return (
 		<>
 			{level ? (
-				<Box
-					display="flex"
-					flexDirection="column"
-					p="10px"
-					width="261px"
-					height="410px"
-					borderRadius="15px"
-					border="1px solid #E4E7EE"
-					bgcolor="white"
-				>
-					<Box
-						width="240px"
-						height="240px"
-						position="relative"
-						display="flex"
-						flexDirection="column"
-					>
-						<img
-							style={{ position: "absolute", zIndex: "10" }}
-							src={item.bg}
-							alt=""
-						/>
-						<Box
-							position="relative"
-							zIndex="20"
-							display="flex"
-							justifyContent="space-between"
-							paddingLeft="5px"
-							paddingRight="5px"
-							paddingTop="5px"
-						>
-							<Button
-								sx={{
-									width: "52px",
-									height: "56px",
-									borderRadius: "100%",
-								}}
-							>
+				<Box display="flex" flexDirection="column" p="10px" width="261px" height="410px" borderRadius="15px" border="1px solid #E4E7EE" bgcolor="white">
+					<Box width="240px" height="240px" position="relative" display="flex" flexDirection="column">
+						<img style={{ position: "absolute", zIndex: "10" }} src={item.bg} alt="" />
+						<Box position="relative" zIndex="20" display="flex" justifyContent="space-between" paddingLeft="5px" paddingRight="5px" paddingTop="5px" >
+							<Button sx={{ width: "52px", height: "56px", borderRadius: "100%", }} >
 								<SVGIcons icon={item.leftIcon} />
 							</Button>
-							<Button
-								onClick={handleLike}
-								sx={{
-									width: "52px",
-									height: "56px",
-									borderRadius: "100%",
-								}}
-							>
+							<Button onClick={handleLike} sx={{ width: "52px", height: "56px", borderRadius: "100%", }}>
 								<SVGIcons icon="Liked" checked={like} />
 							</Button>
 						</Box>
 					</Box>
-					<Box
-						display="flex"
-						flexDirection="column"
-						gap="8px"
-						marginTop="20px"
-						padding="10px"
-					>
-						<Box
-							textAlign="start"
-							fontSize="22px"
-							display="flex"
-							gap="10px"
-						>
+					<Box display="flex" flexDirection="column" gap="8px" marginTop="20px" padding="10px" >
+						<Box textAlign="start" fontSize="22px" display="flex" gap="10px">
 							<span style={{ color: "black", fontWeight: "700" }}>
-								{item.mony}
-							</span>
-							<span
-								style={{ color: "#B7B8C5", fontWeight: "700" }}
-							>
+								{item.mony} </span>
+							<span style={{ color: "#B7B8C5", fontWeight: "700" }} >
 								250 €
 							</span>
 						</Box>
@@ -101,156 +47,44 @@ const ItemComponent = ({ item, level = false, isLike = false}) => {
 					</Box>
 				</Box>
 			) : (
-				<Box
-					display="flex"
-					flexDirection="column"
-					p="10px"
-					width="261px"
-					height="100%"
-					borderRadius="15px"
-					border="1px solid #E4E7EE"
-					bgcolor="white"
-				>
-					<Box
-						width="240px"
-						height="240px"
-						position="relative"
-						display="flex"
-						flexDirection="column"
-					>
-						<img
-							style={{ position: "absolute", zIndex: "10" }}
-							src={item.bg}
-							alt=""
-						/>
-						<Box
-							position="relative"
-							zIndex="20"
-							display="flex"
-							justifyContent="space-between"
-							paddingLeft="5px"
-							paddingRight="5px"
-							paddingTop="5px"
-						>
-							<Button
-								sx={{
-									width: "52px",
-									height: "56px",
-									borderRadius: "100%",
-								}}
-							>
+				<Box display='flex' flexDirection='column' p='10px' width='261px' height='100%' borderRadius='15px' border='1px solid #E4E7EE' bgcolor='white'>
+					<Box width='240px' height='240px' position='relative' display='flex' flexDirection='column'>
+						<img src={item.bg} alt="" />
+						<Box display='flex' justifyContent='space-between' paddingLeft='5px' paddingRight='5px' paddingTop='5px' position='relative' >
+							<button style={{ width: '52px', height: '56px', borderRadius: '100%', position: 'relative', bottom: '237px', border: 'none', background: 'none', cursor: 'pointer' }} >
 								<SVGIcons icon={item.leftIcon} />
-							</Button>
-							<Button
-								onClick={handleLike}
-								sx={{
-									width: "52px",
-									height: "56px",
-									borderRadius: "100%",
-								}}
-							>
+							</button>
+							<button onClick={handleLike} style={{ width: '52px', height: '56px', borderRadius: '100%', position: 'relative', bottom: '237px', border: 'none', background: 'none', cursor: 'pointer' }}>
 								<SVGIcons icon="Liked" checked={like} />
-							</Button>
+							</button>
 						</Box>
 					</Box>
-					<Box
-						display="flex"
-						flexDirection="column"
-						gap="8px"
-						marginTop="20px"
-						padding="10px"
-						width="100%"
-						height="100%"
-					>
-						<Box
-							textAlign="start"
-							fontSize="22px"
-							display="flex"
-							gap="10px"
-						>
+					<Box display='flex' flexDirection='column' gap='5px' padding='10px' width='100%' height='100%'>
+						<Box textAlign="start" fontSize="22px" display="flex" gap="10px" >
 							<span style={{ color: "black", fontWeight: "700" }}>
 								{item.mony}
 							</span>
-							<span
-								style={{ color: "#B7B8C5", fontWeight: "700" }}
-							>
+							<span style={{ color: "#B7B8C5", fontWeight: "700" }} >
 								250 €
 							</span>
 						</Box>
 						<span style={{ color: "black", textAlign: "start" }}>
 							{item.title}
 						</span>
-						<Box
-
-							sx={{
-								display: true ? "flex" : "none",
-								gap: "5px",
-								alignItems: "center",
-								mt: "8px",
-							}}
-						>
-							<Fab
-								sx={{
-									width: "35px",
-									height: "30px",
-									borderRadius: "100%",
-									bgcolor: "#F39999",
-								}}
-								color="primary"
-								aria-label="add"
-							></Fab>
-							<Fab
-								sx={{
-									width: "35px",
-									height: "30px",
-									borderRadius: "100%",
-									bgcolor: "#090F24",
-								}}
-								color="primary"
-								aria-label="add"
-							></Fab>
-							<Fab
-								sx={{
-									width: "35px",
-									height: "30px",
-									borderRadius: "100%",
-									bgcolor: "#90D0B1",
-								}}
-								color="primary"
-								aria-label="add"
-							></Fab>
-							<Fab
-								sx={{
-									width: "35px",
-									height: "30px",
-									borderRadius: "100%",
-									bgcolor: "#9C7C75",
-								}}
-								color="primary"
-								aria-label="add"
-							></Fab>
-							<Fab
-								sx={{
-									width: "35px",
-									height: "30px",
-									borderRadius: "100%",
-									bgcolor: "#A2D0DA",
-								}}
-								color="primary"
-								aria-label="add"
-							></Fab>
-							<Fab
-								sx={{
-									width: "35px",
-									height: "30px",
-									borderRadius: "100%",
-									bgcolor: "white",
-								}}
-								color="primary"
-								aria-label="add"
-							>
+						<Box sx={{ display: 'flex', gap: '5px', alignItems: 'center', mt: '8px' }}>
+							<Box sx={{ width: '35px', height: '33px', borderRadius: '100%', bgcolor: '#F39999', cursor: 'pointer' }} color="primary" aria-label="add">
+							</Box>
+							<Box sx={{ width: '35px', height: '33px', borderRadius: '100%', bgcolor: '#090F24', cursor: 'pointer' }} color="primary" aria-label="add">
+							</Box>
+							<Box sx={{ width: '35px', height: '33px', borderRadius: '100%', bgcolor: '#90D0B1', cursor: 'pointer' }} color="primary" aria-label="add">
+							</Box>
+							<Box sx={{ width: '35px', height: '33px', borderRadius: '100%', bgcolor: '#9C7C75', cursor: 'pointer' }} color="primary" aria-label="add">
+							</Box>
+							<Box sx={{ width: '35px', height: '33px', borderRadius: '100%', bgcolor: '#A2D0DA', cursor: 'pointer' }} color="primary" aria-label="add">
+							</Box>
+							<Box sx={{ width: '35px', height: '33px', borderRadius: '100%', bgcolor: 'blue', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer' }} color="primary" aria-label="add">
 								<AddIcon />
-							</Fab>
+							</Box>
 						</Box>
 						<Box mt="10px" display="flex" gap="10px">
 							<SVGIcons icon="delivery" />

@@ -117,7 +117,7 @@ function Product () {
           setSize(e.target.value);
      }
      const handleActive = event => {
-          // 👇️ toggle isActive state on click
+          //  toggle isActive state on click
           setIsActive(current => !current);
      };
 

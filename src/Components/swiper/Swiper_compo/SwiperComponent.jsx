@@ -17,7 +17,6 @@ export default function SwiperComponent(props) {
             modules={[Navigation, Pagination, A11y]}
             spaceBetween={50}
             slidesPerView={props.slides}
-            navigation
             pagination={props.pagination ? { clickable: true } : false}
             style={{ height: "100%", width: "100%", borderRadius: "15px", color: "#ccc", paddingLeft: props.pad === true ? '40px' : '0px'}}
           >

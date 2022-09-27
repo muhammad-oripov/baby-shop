@@ -6,7 +6,7 @@ import ItemComponent from '../Components/ItemComponent';
 
 const Liked = () => {
     const liked = useSelector(state => state.liked.liked);
-
+    
     console.log(liked, 'liked');
 
     return (
