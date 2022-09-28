@@ -53,3 +53,7 @@ button {
   background: #74CCD8 !important;
   color: 'white'
 }
+
+ul,li,ol {
+  list-style: none;
+}

@@ -37,7 +37,7 @@ export default function Home() {
 				/>
 				<title>Bernu: подарки для ваших детей</title>
 			</Helmet>
-			<div style={{ display: 'flex', flexDirection: 'column', width: '100%', height: '100%' }}>
+			<div style={{display: 'flex', flexDirection: 'column', maxWidth: '1920px', margin: '0px auto', height: '100%' }}>
 				<SwiperComponent
 					arr={cardImg}
 					card={Images}
@@ -50,7 +50,7 @@ export default function Home() {
 					<Box width='100%' height='610px' textAlign='center' display='flex' flexDirection='column' gap='30px'>
 						<h1 style={{ marginTop: '60px' }}>Вы уже смотрели</h1>
 						<SwiperComponent
-							arr={Swiper_arr2}
+							arr={Swip_arr1}
 							card={ItemComponent}
 							slides={4}
 							pagination={false}
@@ -89,7 +89,7 @@ export default function Home() {
 						<Box height='735px' textAlign='center' display='flex' flexDirection='column' gap='30px'>
 							<h1 style={{ marginTop: '60px' }}>Популярные товары</h1>
 							<SwiperComponent
-								arr={Swiper_arr2}
+								arr={Swiper_arr3}
 								card={ItemComponent}
 								slides={4}
 								pad={true}
@@ -100,7 +100,7 @@ export default function Home() {
 					<Box maxWidth='1920px' height={lev === true ? '610px' : '735px'} textAlign='center' display='flex' flexDirection='column' gap='30px' bgcolor='#F4F5F9'>
 						<h1 style={{ marginTop: lev === true ? '40px' : '60px' }}>Акции и скидки</h1>
 						<SwiperComponent
-							arr={Swiper_arr2}
+							arr={Swiper_arr4}
 							card={ItemComponent}
 							slides={4}
 							pad={true}
