@@ -14,6 +14,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 import { Button, Stack, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
+import axios from 'axios';
 
 
 const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
@@ -45,8 +46,7 @@ const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
 function Product() {
      //Products
      const products = useSelector(state => console.log(state))
-
-     // console.log(products);
+     const [data, setData] = useState(null)
 
      //active
      const [isActive, setIsActive] = useState(false);
@@ -125,6 +125,16 @@ function Product() {
 
 
 
+     useEffect(() => {
+          const ID = window.location.href.split('=').at(-1)
+
+          axios.get(`http://localhost:3500/employees/${ID}`)
+               .then(res => {
+                    setData(res.data)
+               })     
+     }, [])
+
+
      return (
 
           <>
@@ -168,22 +178,21 @@ function Product() {
                     </Box>
                     <Stack direction="column" padding='2px'>
                          <Box>
-                              <Typography className='header_product '>Bugaboo Butterfly sporta rati, Black/Midnight Black-Midnight Black</Typography>
+                              <Typography className='header_product '>{data?.title}</Typography>
                          </Box>
                          <Stack direction="row" alignItems='center' justifyContent='space-between' spacing={2}>
                               <Box className='ImageSide' p='5px'>
                                    <Stack direction='column' alignItems='center'>
                                         <Stack className='product_slider' gap='5px' direction='column'>
                                              <Box className='product_slider_mainImg'>
-                                                  <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src={`/img/${cuurentImg}`} alt="Main Img" />
+                                                  <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} src={data?.media?.pictures[0]} alt="Main Img" />
                                              </Box>
                                              <Stack direction='row' gap='10px' width='100%' justifyContent='space-evenly' >
                                                   {
-                                                       sliderImgs.map((item, index) => {
-                                                            <Box className='product_slider_itemImg itemImg_act' key={index} >
-                                                                 <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} onClick={() => setImg(item.img)} src={`${item.img}`} alt={`${item.alt}`} />
+                                                       data?.media?.pictures.map((item, index) => {
+                                                            <Box className='product_slider_itemImg itemImg_act'  key={index} >
+                                                                 <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} onClick={() => setImg(item)} src={`${item}`} alt={"alt"} />
                                                             </Box>
-                                                            console.log(item.img)
                                                        })
                                                   }
                                                   <Box className='product_slider_itemImg row center' bgcolor='#F4F5F9' borderRadius='8px' >
@@ -192,15 +201,21 @@ function Product() {
                                              </Stack>
                                         </Stack>
                                         <Stack direction='row' gap='10px' p='20px'>
-                                             <Box className='video_item' >
-                                                  <video src='https://youtu.be/hGnMSib9Fuw' width="100%" height="100%" controls="controls" />
-                                             </Box>
-                                             <Box className='video_item'>
+                                             {
+                                                  data?.media?.pictures.map((item, index) => 
+                                                       <Box className='video_item' >
+                                                            {/* <img style={{ width: '100%', height: '100%', objectFit: 'cover' }} onClick={() => setImg(item)} src={`${item}`} alt={"alt"} /> */}
+                                                            <img src={item} width="100%" height="100%" />
+                                                       </Box>
+                                                  )
+                                             }
+                                             
+                                             {/* <Box className='video_item'>
                                                   <video src='https://youtu.be/c-keaqyidxU' width="100%" height="100%" controls="controls" />
                                              </Box>
                                              <Box className='video_item'>
                                                   <video src='https://youtu.be/c-keaqyidxU' width="100%" height="100%" controls="controls" />
-                                             </Box>
+                                             </Box> */}
                                         </Stack>
                                    </Stack>
                               </Box>

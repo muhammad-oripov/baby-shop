@@ -2,8 +2,10 @@ import { Box, Button, Pagination, Rating, Stack, SvgIcon, Typography, Zoom } fro
 import React from 'react'
 import { useEffect, useRef, useState } from 'react'
 import { Helmet } from 'react-helmet'
+import { useDispatch, useSelector } from 'react-redux'
 import SVGIcons from '../../Components/SVGIcons'
 import { Swiper_arr4 } from '../../Components/swiper/Swiper_compo/Swip_arr'
+import { fetchProducts } from '../../store/features/products/productThunk'
 import Accardeon from './Accardeon'
 import ProductBlock from './ProductBlock'
 import SelectSmall from './SelectSmall'
@@ -15,14 +17,22 @@ const SearchPage = () => {
     const [brands, setBrands] = useState([])
     const [colors, setColors] = useState([])
     const [pixel, setPixel] = useState('1330px')
-    
-
 
     const lastPageIndex = currentPage * productsPerPage
     const firstPageIndex = lastPageIndex - productsPerPage
     const currentProduct = Swiper_arr4.slice(firstPageIndex, lastPageIndex)
 
-    
+    const products = useSelector(state => state.products.data);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if(products.length === 0) {
+            dispatch(fetchProducts())
+        }
+    }, []);
+
+
+
     let act
     useEffect(() => {
         act = document.querySelectorAll('#act')
@@ -140,8 +150,9 @@ const SearchPage = () => {
                         <Typography sx={{ color: '#686877', fontSize: '20px' }} variant='span'>Найдено {Swiper_arr4.length} товаров </Typography>
                         <SelectSmall />
                     </Box>
-                    <Box sx={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: "10px" }}>
-                        <ProductBlock onPixel={setPixel} products={currentProduct} />
+                    <Box sx={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "10px" }}>
+                        {/* maping */}
+                        <ProductBlock onPixel={setPixel} products={products} />
                     </Box>
                     <Box sx={{ gap: '10px', width: '100%', marginTop: '30px', display: 'flex', justifyContent: 'center' }}>
                         <button className='btn_paginate' style={{ transition: '.2s ease', padding: '10px', cursor: 'pointer', background: '#F4F5F9', border: 'none', borderRadius: '1000px', width: pageCount.length > 10 ? '50px' : '70px', height: '70px', fontSize: '20px' }} onClick={prevpage}>{'<'}</button>
