@@ -40,9 +40,6 @@ button {
   width: 60px !important;
   height: 60px !important;
   border-radius: 1000px !important;
-} 
-.MuiBox-root .swiper-slide{
-  width: 259.25px !important;
 }
 
 .btn_paginate:hover {
@@ -56,12 +53,12 @@ button {
   background: #74CCD8 !important;
   color: 'white'
 }
-.skidka img{
-  width: 456px;
+
+#activate{
+  background: #74CCD8;
+  color: 'white' !important;
 }
-.MuiButtonBase-root:hover{
-  background: none !important;
-}
-.css-1rzldgd button:hover{
-  background-color: rgb(2, 167, 2)!important;
+
+ul,li,ol {
+  list-style: none;
 }

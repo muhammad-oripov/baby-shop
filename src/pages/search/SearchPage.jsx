@@ -3,27 +3,26 @@ import React from 'react'
 import { useEffect, useRef, useState } from 'react'
 import { Helmet } from 'react-helmet'
 import SVGIcons from '../../Components/SVGIcons'
+import { Swiper_arr4 } from '../../Components/swiper/Swiper_compo/Swip_arr'
 import Accardeon from './Accardeon'
 import ProductBlock from './ProductBlock'
 import SelectSmall from './SelectSmall'
 
+
 const SearchPage = () => {
-    const [products, setProdusts] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
     const [productsPerPage] = useState(8)
     const [brands, setBrands] = useState([])
     const [colors, setColors] = useState([])
     const [pixel, setPixel] = useState('1330px')
     
-    useEffect(() => {
-        setProdusts([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18])
-    }, [])
 
 
     const lastPageIndex = currentPage * productsPerPage
     const firstPageIndex = lastPageIndex - productsPerPage
-    const currentProduct = products.slice(firstPageIndex, lastPageIndex)
+    const currentProduct = Swiper_arr4.slice(firstPageIndex, lastPageIndex)
 
+    
     let act
     useEffect(() => {
         act = document.querySelectorAll('#act')
@@ -40,7 +39,7 @@ const SearchPage = () => {
 
     const pageCount = []
 
-    for (let i = 0; i < Math.ceil(products.length / productsPerPage); i++) {
+    for (let i = 0; i < Math.ceil(Swiper_arr4.length / productsPerPage); i++) {
         pageCount.push(i)
     }
 
@@ -57,6 +56,7 @@ const SearchPage = () => {
             })
         }
     }
+
     const nextpage = () => {
         if (currentPage === (pageCount.at(-1) + 1)) {
         } else {
@@ -70,10 +70,12 @@ const SearchPage = () => {
             })
         }
     }
+    
     const deleteFunc = (e) => {
         let newColors = colors.filter(item => item !== e.target.innerHTML.split(' ')[0])
         setColors(newColors)
     }
+
     const deleteFunc2 = (e) => {
         let newBrands = brands.filter(item => item !== e.target.innerHTML.split(' ')[0])
         setBrands(newBrands)
@@ -135,11 +137,11 @@ const SearchPage = () => {
                         </Box>
                     </Box>
                     <Box sx={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                        <Typography sx={{ color: '#686877', fontSize: '20px' }} variant='span'>Найдено {products.length} товаров </Typography>
+                        <Typography sx={{ color: '#686877', fontSize: '20px' }} variant='span'>Найдено {Swiper_arr4.length} товаров </Typography>
                         <SelectSmall />
                     </Box>
-                    <Box sx={{ width: '100%', display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-                        <ProductBlock products={currentProduct} like={"unliked"} icon={"discount_50"} btn={true} colorMania={true}/>
+                    <Box sx={{ display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: "10px" }}>
+                        <ProductBlock onPixel={setPixel} products={currentProduct} />
                     </Box>
                     <Box sx={{ gap: '10px', width: '100%', marginTop: '30px', display: 'flex', justifyContent: 'center' }}>
                         <button className='btn_paginate' style={{ transition: '.2s ease', padding: '10px', cursor: 'pointer', background: '#F4F5F9', border: 'none', borderRadius: '1000px', width: pageCount.length > 10 ? '50px' : '70px', height: '70px', fontSize: '20px' }} onClick={prevpage}>{'<'}</button>
