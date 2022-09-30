@@ -33,6 +33,7 @@ const SearchPage = () => {
 
 
 
+    
     let act
     useEffect(() => {
         act = document.querySelectorAll('#act')

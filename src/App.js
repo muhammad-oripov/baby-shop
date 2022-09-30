@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import './App.css';
 
 import Layout from './Layout/Layout';
+import Desg from "./pages/Desg";
 import Home from './pages/Home';
 import Liked from "./pages/Liked";
 import Login from "./pages/Login";
@@ -20,6 +21,7 @@ function App() {
                     <Route path="/product" exact element={<Product />} />
                     <Route path="/liked" exact element={<Liked />} />
                     <Route path="/cabinet" exact element={<Cabinet />} />
+                    <Route path="/desg" exact element={<Desg />} />
                     <Route path="*" exact element={'404'} />
                 </Routes>
             </Layout>

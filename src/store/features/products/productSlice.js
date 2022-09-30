@@ -7,11 +7,15 @@ export const productSlice = createSlice({
     initialState: {
         data: [],
         liked: [],
+        bucked: [],
         status: 'idle'
     },
     reducers: {
         likeproduct(state, action) {
             state.liked.push(action.payload)
+        },
+        toBucket: (state, action) => {
+            state.bucked.push(action.payload)
         }
     },
     extraReducers(builder) {

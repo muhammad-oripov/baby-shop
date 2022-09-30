@@ -54,6 +54,11 @@ button {
   color: 'white'
 }
 
+#activate{
+  background: #74CCD8;
+  color: 'white' !important;
+}
+
 ul,li,ol {
   list-style: none;
 }
