@@ -31,7 +31,7 @@ const Star = ({ starId, rating, onMouseEnter, onMouseLeave, onClick }) => {
                onClick={onClick}
           >
                <svg
-                    class={styleClass}
+                    className={styleClass}
                     viewBox="0 0 25 23"
                     data-rating="1"
                >

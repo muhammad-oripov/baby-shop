@@ -193,7 +193,7 @@ const ItemComponent = ({ item, level = false, isLike = false }) => {
 								mt: "8px",
 							}}
 						>
-							{item?.colors.map((col, index) => 
+							{item?.colors?.map((col, index) => 
 								<Box
 									key={index}
 									sx={{
