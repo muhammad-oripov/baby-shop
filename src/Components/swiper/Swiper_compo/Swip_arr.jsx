@@ -221,6 +221,10 @@ export const Swiper_arr4 = [
         title: 'Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка',
         leftIcon: 'New',
         mony: '100 €',
+        discount: {
+            isSale: true,
+            percent: 20
+        }
     },
     {
         id: 34,
@@ -228,6 +232,10 @@ export const Swiper_arr4 = [
         title: 'Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка',
         leftIcon: 'New',
         mony: '100 €',
+        discount: {
+            isSale: false,
+            percent: 0
+        }
     },
     {
         id: 35,
@@ -235,6 +243,10 @@ export const Swiper_arr4 = [
         title: 'Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка',
         leftIcon: 'New',
         mony: '100 €',
+        discount: {
+            isSale: true,
+            percent: 27
+        }
     },
     {
         id: 36,
@@ -242,6 +254,10 @@ export const Swiper_arr4 = [
         title: 'Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка',
         leftIcon: 'New',
         mony: '100 €',
+        discount: {
+            isSale: false,
+            percent: 20
+        }
     },
     {
         id: 37,
@@ -249,6 +265,10 @@ export const Swiper_arr4 = [
         title: 'Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка',
         leftIcon: 'New',
         mony: '100 €',
+        discount: {
+            isSale: false,
+            percent: 0
+        }
     },
     {
         id: 38,
@@ -256,6 +276,10 @@ export const Swiper_arr4 = [
         title: 'Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка',
         leftIcon: 'New',
         mony: '100 €',
+        discount: {
+            isSale: false,
+            percent: 20
+        }
     },
     {
         id: 25,
@@ -263,6 +287,10 @@ export const Swiper_arr4 = [
         title: 'Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка',
         leftIcon: 'Hit',
         mony: '100 €',
+        discount: {
+            isSale: false,
+            percent: 0
+        }
     },
     {
         id: 26,
@@ -270,6 +298,10 @@ export const Swiper_arr4 = [
         title: 'Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка',
         leftIcon: 'Hit',
         mony: '100 €',
+        discount: {
+            isSale: false,
+            percent: 20
+        }
     },
     {
         id: 27,
@@ -277,6 +309,10 @@ export const Swiper_arr4 = [
         title: 'Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка',
         leftIcon: 'Hit',
         mony: '100 €',
+        discount: {
+            isSale: true,
+            percent: 0
+        }
     },
     {
         id: 1,
@@ -284,5 +320,9 @@ export const Swiper_arr4 = [
         title: 'Safety 1st Timba Natural Wood 3 в 1 Стульчик для кормления + подушка',
         leftIcon: 'Discount',
         mony: '100 €',
+        discount: {
+            isSale: true,
+            percent: 0
+        }
     },
 ]

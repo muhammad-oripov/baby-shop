@@ -6,6 +6,7 @@ import AddIcon from "@mui/icons-material/Add";
 import Rating from "@mui/material/Rating";
 import { useDispatch } from "react-redux";
 import { likedProduct } from "../store/features/likedSlice";
+import { Link } from "react-router-dom";
 
 const ItemComponent = ({ item, level = false, isLike = false }) => {
 	const [value, setValue] = useState(2);
@@ -16,8 +17,6 @@ const ItemComponent = ({ item, level = false, isLike = false }) => {
 		dispatch(likedProduct(item));
 		setLike(!like);
 	};
-
-	console.log(item);
 
 	return (
 		<>
@@ -39,11 +38,13 @@ const ItemComponent = ({ item, level = false, isLike = false }) => {
 						display="flex"
 						flexDirection="column"
 					>
-						<img
-							style={{ position: "absolute", zIndex: "10" }}
-							src={item?.media?.pictures[0]}
-							alt={item.name}
-						/>
+						<Link to={`/product?id=${item.id}`} >
+							<img
+								style={{ position: "absolute", zIndex: "10" }}
+								src={item?.media?.pictures[0] || item.bg}
+								alt={item.name}
+							/>
+						</Link>
 						<Box
 							position="relative"
 							zIndex="20"
@@ -119,7 +120,9 @@ const ItemComponent = ({ item, level = false, isLike = false }) => {
 						display="flex"
 						flexDirection="column"
 					>
-						<img src={item?.media?.pictures[0]} alt="" />
+						<Link to={`/product?id=${item.id}`} >
+							<img src={item?.media?.pictures[0] || item.bg} alt="" />
+						</Link> 
 						<Box
 							display="flex"
 							justifyContent="space-between"

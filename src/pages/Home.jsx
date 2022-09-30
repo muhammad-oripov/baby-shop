@@ -2,11 +2,7 @@ import { Box } from "@mui/system";
 import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { cardImg, Images } from "../Components/swiper/Swiper_compo/Swip_arr";
-import { Swip_arr1 } from "../Components/swiper/Swiper_compo/Swip_arr";
 import SwiperComponent from "../Components/swiper/Swiper_compo/SwiperComponent";
-import { Swiper_arr2 } from "../Components/swiper/Swiper_compo/Swip_arr";
-import { Swiper_arr3 } from "../Components/swiper/Swiper_compo/Swip_arr";
-import { Swiper_arr4 } from "../Components/swiper/Swiper_compo/Swip_arr";
 import '../App.css'
 import BGimg from '../Components/swiper/images/Rectangle 9 (1).png'
 import BGimg1 from '../Components/swiper/images/image 4 (1).png'
@@ -15,16 +11,22 @@ import { Button } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../store/features/products/productThunk";
 import ItemComponent from "../Components/ItemComponent";
+import { fetchAllSales } from "../store/features/products/productSlice";
 
 
 export default function Home() {
 	let lev = false
 	const products = useSelector(state => state.products.data);
+	const salesProducts = useSelector(state => state.products.sales);
+
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		if(products.length == 0) {
 			dispatch(fetchProducts())
+		}
+		if(salesProducts.length === 0) {
+			dispatch(fetchAllSales())
 		}
 	}, []);
 
@@ -50,7 +52,7 @@ export default function Home() {
 					<Box width='100%' height='610px' textAlign='center' display='flex' flexDirection='column' gap='30px'>
 						<h1 style={{ marginTop: '60px' }}>Вы уже смотрели</h1>
 						<SwiperComponent
-							arr={Swip_arr1}
+							arr={products}
 							card={ItemComponent}
 							slides={4}
 							pagination={false}
@@ -61,7 +63,7 @@ export default function Home() {
 					<Box maxWidth='1920px' height={lev === true ? '610px' : '735px'} textAlign='center' display='flex' flexDirection='column' gap='30px' bgcolor='#F4F5F9'>
 						<h1 style={{ marginTop: lev === true ? '40px' : '60px' }}>Акции и скидки</h1>
 						<SwiperComponent
-							arr={Swiper_arr2}
+							arr={salesProducts}
 							card={ItemComponent}
 							slides={4}
 							pad={true}
@@ -89,7 +91,7 @@ export default function Home() {
 						<Box height='735px' textAlign='center' display='flex' flexDirection='column' gap='30px'>
 							<h1 style={{ marginTop: '60px' }}>Популярные товары</h1>
 							<SwiperComponent
-								arr={Swiper_arr3}
+								arr={products}
 								card={ItemComponent}
 								slides={4}
 								pad={true}
@@ -100,7 +102,7 @@ export default function Home() {
 					<Box maxWidth='1920px' height={lev === true ? '610px' : '735px'} textAlign='center' display='flex' flexDirection='column' gap='30px' bgcolor='#F4F5F9'>
 						<h1 style={{ marginTop: lev === true ? '40px' : '60px' }}>Акции и скидки</h1>
 						<SwiperComponent
-							arr={Swiper_arr4}
+							arr={salesProducts}
 							card={ItemComponent}
 							slides={4}
 							pad={true}
